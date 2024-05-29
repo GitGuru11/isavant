@@ -6,6 +6,7 @@ import Test from "./components/Test";
 import Select from "./components/Test/select";
 import Question from "./components/Test/question";
 import Final from "./components/Test/final";
+import Report from "./components/Reports";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/final",
     element: <Final />,
+  },
+  {
+    path: "/report",
+    element: <Report />,
   },
 ]);
 
