@@ -1,0 +1,80 @@
+.assessment-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 80vh;
+}
+
+.assessment-wrap {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.assessment-left button {
+    margin-top: 30px;
+    border-style: none;
+    border-radius: 30px;
+    background-color: #F9E09D;;
+    padding: 30px 50px;
+    font-weight: 600;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+    .assessment-wrap {
+        width: 90%;
+    }
+
+    .assessment-wrap img {
+        width: 55%;
+    }
+
+    .isavant-txt {
+        font-size: 35px;
+    }
+
+    .assessment-txt {
+        font-size: 35px;
+    }
+
+    .assessment-left button {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .assessment-wrap {
+        flex-direction: column-reverse;
+    }
+
+    .assessment-title-container {
+        margin-top: 50px;
+    }
+
+    .assessment-wrap img {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .assessment-wrap img {
+        width: 300px;
+    }
+
+    .isavant-txt {
+        font-size: 25px;
+    }
+
+    .assessment-txt {
+        font-size: 25px;
+    }
+
+    .assessment-left button {
+        padding: 20px 40px;
+        font-size: 20px;
+    }
+}

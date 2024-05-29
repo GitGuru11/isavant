@@ -1,0 +1,196 @@
+.landing-container {
+    position: relative;
+    margin: auto;
+}
+
+.facebook-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 130px
+}
+
+.facebook-container img {
+    width: 45%;
+}
+
+.facebook-left-title {
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 62px;
+    color: #F277C6;
+}
+
+.facebook-left-description {
+    width: 650px;
+    margin: 20px 0px;
+    font-family: "Roboto";
+    font-weight: 800;
+    font-size: 35px;
+    color: #666680;;
+}
+
+.facebook-left-button {
+    border-style: none;
+    border-radius: 73px;
+    padding: 24px 32px;
+    background: #11111F;
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.down-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 130px;
+}
+
+.toxic-txt {
+    font-family: "Roboto";
+    font-weight: 600;
+    font-size: 45px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.item-wrap {
+    text-align: center;
+}
+
+.item-wrap .toxic-food{
+    color: #F277C6;
+    font-weight: 600;
+    font-size: 40px;
+    margin-top: 200px;
+    margin-bottom: 100px;
+}
+
+.natural-title {
+    margin-top: 150px;
+    font-weight: 600;
+    font-size: 45px;
+    text-align: center;
+}
+
+.cards-container {
+    text-align: center;
+}
+
+.psychology-title {
+    margin-top: 150px;
+    color: #F277C6;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: center;
+}
+
+.psychology-content {
+    width: 80%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.brain-content {
+    width: 70%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.goods-container {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 30px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .facebook-container {
+        flex-direction: column;
+    }
+
+    .facebook-container img {
+        width: 70%;
+        margin-top: 50px;
+    }
+
+    .brain-content {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .facebook-left-title {
+        font-size: 50px;
+    }
+
+    .facebook-left-description {
+        width: 70%;
+        margin: 20px 0px;
+        font-family: "Roboto";
+        font-weight: 800;
+        font-size: 25px;
+        color: #666680;
+        ;
+    }
+
+    .facebook-left-button {
+        border-style: none;
+        border-radius: 73px;
+        padding: 15px 25px;
+        background: #11111F;
+        font-family: "Roboto";
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    .toxic-txt span {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .facebook-left-description {
+        width: 100%;
+    }
+    
+    .down-img {
+        margin-bottom: 30px;
+    }
+
+    .down-img img {
+        width: 100px !important;
+        margin: auto;
+    }
+
+    .toxic-txt span{
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .natural-title {
+        font-size: 25px;
+        margin-top: 50px;
+    }
+
+    .psychology-title {
+        font-size: 25px;
+    }
+
+    .psychology-content {
+        width: 100%;
+        font-size: 20px !important;
+        margin: 50px 0px;
+    }
+
+    .brain-content {
+        margin:50px 0px;
+        width: 100%;
+        font-size: 20px !important;
+    }
+}

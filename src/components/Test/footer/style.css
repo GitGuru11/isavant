@@ -1,0 +1,28 @@
+.footer-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #EBEBEB;
+    text-align: center;
+    color: #666680;
+    font-weight: 500;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container span {
+    cursor: pointer;
+}
+
+.footer-container span:hover {
+    border-bottom: solid 1px #F277C6;
+}
+
+@media only screen and (max-width: 1024px) {
+    .footer-container {
+        font-size: 15px;
+    }
+}
