@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ScrollToTop from "react-scroll-to-top";
 import Header from "../Header";
 import Card from "../Card";
 import Order from "../Order";
@@ -243,6 +244,7 @@ export default function Index() {
           <Order idx={index} content={item} />
         ))}
       </div>
+      <ScrollToTop smooth />
     </div>
   );
 }
