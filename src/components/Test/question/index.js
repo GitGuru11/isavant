@@ -1,10 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createClient } from "contentful";
+import { useLocation } from "react-router-dom";
 import Header from "../header";
 import "./style.css";
 
 export default function Index() {
+  const location = useLocation();
+  const types = [
+    "Strongly Agree",
+    "Somewhat Agree",
+    "Strongly Disagree",
+    "Somewhat Disagree",
+  ];
   const [flag, setFlag] = useState(0);
   const [current, setCurrent] = useState(0);
+  const [isDisable, setIsDisable] = useState(true);
+  const [res, setRes] = useState(new Array(40).fill(0));
+  const [resChild, setResChild] = useState(new Array(40).fill(0));
+  const [data, setData] = useState({});
+
+  const deliveryAPIKey = "plTZGADCcTmhI34oYFEG0IJ4M_Dp03C-zwO2xMac0v8";
+  const spaceId = "mwnrlr44qowg";
+
+  const client = createClient({
+    space: spaceId,
+    accessToken: deliveryAPIKey,
+  });
   const [questions, setQuestions] = useState([
     "I’m always on time",
     "I’m good at remembering others’ names",
@@ -48,42 +69,216 @@ export default function Index() {
     "I change my mind frequently",
   ]);
 
-  const nextPage = (num) => {
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    if (res[current] && resChild[current]) {
+      setIsDisable(false);
+    }
+  }, [res, resChild]);
+
+  async function getData() {
+    try {
+      const entries = await client.getEntries({
+        content_type: "questions",
+      });
+
+      console.log(entries.items[0].fields);
+      setData(entries.items[0].fields);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return [];
+    }
+  }
+
+  const changeValue = (v) => {
+    let tempArr = flag ? [...resChild] : [...res];
+
+    if (flag) {
+      tempArr = [...resChild];
+      tempArr[current] = v;
+      setResChild(tempArr);
+    } else {
+      tempArr = [...res];
+      tempArr[current] = v;
+      setRes(tempArr);
+      if (location.pathname !== "/parent") {
+        setIsDisable(false);
+      }
+    }
+  };
+
+  const next = (num) => {
     const newIdx = current + num;
-    console.log(newIdx);
     if (newIdx !== -1 && newIdx !== 40) {
       setCurrent(newIdx);
+      if (num === 1) {
+        if (res[current + 1]) {
+          setIsDisable(false);
+        } else {
+          setIsDisable(true);
+        }
+      } else {
+        setIsDisable(false);
+      }
+    }
+    if (newIdx === 40) {
+      window.location.href = "/monster";
+    }
+  };
+
+  const nextPage = (num) => {
+    const newIdx = current + num;
+    if (newIdx !== -1 && newIdx !== 40) {
+      setCurrent(newIdx);
+      if (num == 1) {
+        if (res[current + 1] && resChild[current + 1]) {
+          setIsDisable(false);
+        } else {
+          setIsDisable(true);
+        }
+      } else {
+        setIsDisable(false);
+      }
     }
     if (newIdx === 40) {
       window.location.href = "/final";
     }
+    setFlag(0);
   };
 
   return (
     <div>
       <Header />
-      <div className="question">
-        <div className="question-container">
-          <img src={`../../imgs/questions/questions_${current + 1}.svg`}></img>
-          <div className="question-wrap">
-            <div className="question-title font-48">{questions[current]}</div>
-            <div className="question-answer-container">
-              <div className="question-card">Strongly Agree</div>
-              <div className="question-card">Somewhat Agree</div>
-              <div className="question-card">Strongly Disagree</div>
-              <div className="question-card">Somewhat Disagree</div>
+      {Object.keys(data).length && (
+        <div className="question">
+          {location.pathname === "/parent" && (
+            <div className="question-header">
+              <div className="parent-container color-red">
+                <div
+                  className="parent-name"
+                  style={{
+                    backgroundColor: flag ? "#fdf3da" : "#f9e09d",
+                  }}
+                  onClick={() => setFlag(false)}
+                >
+                  {JSON.parse(localStorage.getItem("userInfo")).firstName}
+                </div>
+                <div className="parent-selection">
+                  {" "}
+                  {types[res[current] - 1]}
+                </div>
+              </div>
+
+              <div className="child-container color-blue">
+                <div
+                  className="child-name"
+                  style={{
+                    backgroundColor: flag ? "#f9e09d" : "#fdf3da",
+                  }}
+                  onClick={() => setFlag(true)}
+                >
+                  {
+                    JSON.parse(localStorage.getItem("userInfo"))
+                      .studentFirstName
+                  }
+                </div>
+                <div className="child-selection">
+                  {" "}
+                  {types[resChild[current] - 1]}
+                </div>
+              </div>
             </div>
-            <div className="question-btn-group">
-              <button onClick={() => nextPage(-1)} className="back-btn">
-                Back
-              </button>
-              <button onClick={() => nextPage(1)} className="next-btn">
-                Next
-              </button>
+          )}
+          <div className="question-container">
+            <img src={data.question[current].fields.img.fields.file.url}></img>
+            <div className="question-wrap">
+              <div className="question-title font-48">
+                {data.question[current].fields.title}
+              </div>
+              <div className="question-answer-container">
+                <div
+                  onClick={() => changeValue(1)}
+                  className="question-card"
+                  style={{
+                    backgroundColor:
+                      (flag ? resChild[current] : res[current]) === 1
+                        ? "#ff9999"
+                        : "",
+                  }}
+                >
+                  Strongly Agree
+                </div>
+                <div
+                  onClick={() => changeValue(2)}
+                  className="question-card"
+                  style={{
+                    backgroundColor:
+                      (flag ? resChild[current] : res[current]) === 2
+                        ? "#ff9999"
+                        : "",
+                  }}
+                >
+                  Somewhat Agree
+                </div>
+                <div
+                  onClick={() => changeValue(3)}
+                  className="question-card"
+                  style={{
+                    backgroundColor:
+                      (flag ? resChild[current] : res[current]) === 3
+                        ? "#ff9999"
+                        : "",
+                  }}
+                >
+                  Strongly Disagree
+                </div>
+                <div
+                  onClick={() => changeValue(4)}
+                  className="question-card"
+                  style={{
+                    backgroundColor:
+                      (flag ? resChild[current] : res[current]) === 4
+                        ? "#ff9999"
+                        : "",
+                  }}
+                >
+                  Somewhat Disagree
+                </div>
+              </div>
+              {location.pathname === "/parent" ? (
+                <div className="question-btn-group">
+                  <button onClick={() => nextPage(-1)} className="back-btn">
+                    Back
+                  </button>
+                  <button
+                    disabled={isDisable}
+                    onClick={() => nextPage(1)}
+                    className="next-btn"
+                  >
+                    Next
+                  </button>
+                </div>
+              ) : (
+                <div className="question-btn-group">
+                  <button onClick={() => next(-1)} className="back-btn">
+                    Back
+                  </button>
+                  <button
+                    disabled={isDisable}
+                    onClick={() => next(1)}
+                    className="next-btn"
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

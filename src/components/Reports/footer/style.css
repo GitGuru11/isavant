@@ -1,0 +1,38 @@
+.report-footer-container {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 30px;
+    position: fixed;
+    left: 50%;
+    bottom: 15px;
+    transform: translate(-50%, 0);
+    z-index: 100;
+
+}
+
+.report-footer-wrap {
+    display: flex;
+}
+
+.report-footer-wrap button {
+    cursor: pointer;
+    border-style: none;
+    padding: 20px 50px;
+    font-weight: 600;
+}
+
+.stress-btn {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.native-btn {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+    .report-footer-wrap button {
+        padding: 15px 30px;
+    }
+}

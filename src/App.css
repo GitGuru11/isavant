@@ -4,7 +4,7 @@
   margin: 0px;
   padding: 0px;
 }
-.App {
+body {
   width: 100vw;
   background-color: #f3f3f3;
   font-family: "Roboto";
@@ -28,4 +28,56 @@
 
 .color-pink {
   color: #F277C6;
+}
+
+.color-white {
+  color: #FFFFFF;
+}
+
+.bg-black {
+  background-color: #141414;
+  color: white;
+}
+
+.bg-white {
+  background-color: #FFFFFF;
+}
+
+.bg-pink {
+  background-color: #F277C6;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.font-30 {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.fit-content {
+  width: fit-content !important;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.font-35 {
+  font-weight: 700 !important;
+  font-size: 35px !important;
+}
+
+.font-45 {
+  font-weight: 700;
+  font-size: 45px;
+}
+
+.color-red {
+  color: red;
+}
+
+.color-blue {
+  color: blue;
 }

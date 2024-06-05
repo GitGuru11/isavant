@@ -6,8 +6,11 @@ import Test from "./components/Test";
 import Select from "./components/Test/select";
 import Question from "./components/Test/question";
 import Final from "./components/Test/final";
-import Report from "./components/Reports";
+import Report from "./components/Reports/summary";
+import Brilliance from "./components/Reports/brilliance";
+import Info from "./components/Test/info";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { GlobalProvider } from "./components/Context/GlobalContext";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -40,13 +43,23 @@ const router = createBrowserRouter([
     element: <Final />,
   },
   {
-    path: "/report",
+    path: "/monster",
     element: <Report />,
+  },
+  {
+    path: "/brilliance",
+    element: <Brilliance />,
+  },
+  {
+    path: "/info",
+    element: <Info />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <GlobalProvider>
+      <RouterProvider router={router} />
+    </GlobalProvider>
   </React.StrictMode>
 );

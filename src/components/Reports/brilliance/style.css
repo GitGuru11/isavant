@@ -1,0 +1,260 @@
+.brilliance-down {
+    display: block;
+}
+
+.brilliance-down img {
+    width: 100px;
+    margin-bottom: 50px;
+}
+
+.brilliance-card-container {
+    margin-bottom: 100px;
+}
+
+.brilliance-card {
+    width: 60%;
+    padding: 50px;
+    border-radius: 41px;
+    border:1px solid #B4B4B466;
+    margin:auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.integrate-title {
+    width: fit-content;
+    position: relative;
+}
+
+.integrate-title img {
+    position: absolute;
+    top: 50%;
+    left: -250px;
+    transform: translate(0%, -50%);
+}
+
+.capacity-content {
+    margin-top: 100px;
+}
+
+.type-panel-container {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 150px;
+}
+
+.type-panel {
+    width: 40%;
+}
+
+.type-panel-title {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.type-panel-subtitle {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.famouse-container {
+    position: relative;
+}
+
+.famouse-title {
+    margin-bottom: 150px;
+    position: relative;
+}
+
+.famouse-title img {
+    margin-bottom: 150px;
+    position: absolute;
+    top:50%;
+    transform: translate(30%, -50%);
+}
+
+.brilliance-item-container {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.brilliance-list {
+    margin-bottom: 300px;
+}
+
+.career-card-container {
+    flex-direction: column;
+    gap: 50px;
+}
+
+.career-circle {
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: -5%;
+    transform: translate(0%, -50%);
+}
+
+.career-panel {
+    width: 90%;
+    height: fit-content;
+    padding: 80px 0px;
+    margin: auto;
+}
+
+.career-content {
+    margin-top: 0px;
+    margin-left: 15%;
+    width: 70%;
+}
+
+.career-panel-title {
+    margin-left: 5%;
+}
+
+.brilliance-item-title {
+    display: none;
+}
+
+.native-title {
+    display:none;
+}
+
+.title-hidden img {
+    display: none !important;
+}
+
+@media only screen and (max-width: 1440px) {
+    .type-panel-container {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        row-gap: 100px;
+    }
+
+    .type-panel {
+        width: 100%;
+    }
+
+    .type-panel-title {
+        text-align: left;
+    }
+
+    .type-panel-subtitle {
+        text-align: left;
+    }
+
+    .career-panel-title {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 1024px) { 
+    .brilliance-card {
+        width: 100%;
+        font-size: 25px;
+    }
+
+    .famouse-title {
+        position: unset;
+        margin-bottom: 20px;
+        color: #F277C6;
+    }
+
+    .famouse-title img {
+        margin-bottom: 150px;
+        position: absolute;
+        top: 110%;
+        left: 0px;
+        transform: translate(-45%, 0%);
+        width: 200px;
+    }
+
+    .career-circle {
+        width: 150px;
+        height: 150px;
+        top: 50%;
+        left: -10%;
+        transform: translate(0%, -50%);
+    }
+
+    .brilliance-item-container {
+        margin-top: 300px;
+    }
+
+    .brilliance-list {
+        margin-bottom: 0px;
+    }
+
+    .brilliance-item-title {
+        display: block;
+        margin-bottom: 50px;
+    }
+
+    .brilliance-item-wrap {
+        flex-direction: column-reverse;
+        margin: 0px;
+    }
+
+    .integrate-title {
+        width: 100%;
+    }
+
+    .integrate-title span {
+        display: none;
+    }
+
+    .integrate-title span {
+        display: none;
+    }
+
+    .integrate-title img {
+        position: absolute;
+        top: 0;
+        left: -25%;
+        transform: translate(0%, -110%);
+    }
+
+    .native-title {
+        display:block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .brilliance-card {
+        width: 100%;
+        font-size: 20px;
+        padding: 30px;
+    }
+
+    .type-panel-title {
+        text-align: center;
+    }
+
+    .type-panel-subtitle {
+        text-align: center;
+    }
+
+    .career-circle {
+        width: 100px;
+        height: 100px;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .career-card-container {
+        gap: 100px;
+    }
+    
+    .career-panel-title {
+        font-size: 30px !important;
+        text-align: center;
+    }
+
+    .brilliance-item-title,
+    .strategic-title {
+        font-size: 25px !important;
+        margin-bottom: 0px;
+    }
+}

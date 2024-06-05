@@ -8,7 +8,11 @@ import "./style.css";
 export default function index() {
   const role = ["student", "parent", "coach"];
   const startTest = (idx) => {
-    window.location.href = `/${role[idx]}`;
+    if (idx === 1) {
+      window.location.href = "/info";
+    } else {
+      window.location.href = `/${role[idx]}`;
+    }
   };
 
   return (
