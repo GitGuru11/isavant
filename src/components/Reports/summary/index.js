@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ScrollToTop from "react-scroll-to-top";
 import { IoIosAddCircle, IoIosRemove } from "react-icons/io";
 import { createClient } from "contentful";
 import MonsterMan from "../../../resources/imgs/reports/monster_man.svg";
@@ -261,6 +262,7 @@ export default function Index() {
           </div>
         </div>
       )}
+      <ScrollToTop smooth />
     </div>
   );
 }

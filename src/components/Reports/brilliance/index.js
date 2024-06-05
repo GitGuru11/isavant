@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ScrollToTop from "react-scroll-to-top";
 import { createClient } from "contentful";
 import Footer from "../footer";
 import "./style.css";
@@ -263,6 +264,7 @@ export default function Index() {
           ))}
         </div>
       )}
+      <ScrollToTop smooth />
     </div>
   );
 }
