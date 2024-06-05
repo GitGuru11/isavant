@@ -125,7 +125,7 @@ export default function Index() {
       }
     }
     if (newIdx === 40) {
-      window.location.href = "/monster";
+      window.location.href = "/fill";
     }
   };
 
@@ -144,7 +144,7 @@ export default function Index() {
       }
     }
     if (newIdx === 40) {
-      window.location.href = "/final";
+      window.location.href = "/fill";
     }
     setFlag(0);
   };
@@ -195,6 +195,19 @@ export default function Index() {
           <div className="question-container">
             <img src={data.question[current].fields.img.fields.file.url}></img>
             <div className="question-wrap">
+              <div className="progress">
+                <div className="progress-container">
+                  <div
+                    style={{ width: `${(100 / 40) * (current + 1)}%` }}
+                    className="progress-row"
+                  >
+                    <div className="progress-circle"></div>
+                  </div>
+                  <div className="progress-state">{`${current + 1}/${
+                    data.question.length
+                  }`}</div>
+                </div>
+              </div>
               <div className="question-title font-48">
                 {data.question[current].fields.title}
               </div>
