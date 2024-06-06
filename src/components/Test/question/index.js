@@ -131,7 +131,7 @@ export default function Index() {
       }
     }
     if (newIdx === 40) {
-      window.location.href = "/fill";
+      window.location.href = "/monster";
     }
   };
 
