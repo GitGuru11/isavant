@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style.css"; // Import your custom CSS styles
 
 const Index = () => {
+  const [flag, setFlag] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     firstName: "",
@@ -26,39 +27,61 @@ const Index = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your form submission logic here
-    if (formData.email && formData.firstName && formData.studentFirstName) {
-      localStorage.setItem("userInfo", JSON.stringify(formData));
-      window.location.href = "/parent";
+    if (flag) {
+      if (formData.studentFirstName) {
+        localStorage.setItem("userInfo", JSON.stringify(formData));
+        window.location.href = "/parent";
+      } else {
+        alert("invalid input");
+      }
     } else {
-      alert("invalid input");
+      if (formData.email && formData.firstName) {
+        setFlag(true);
+      } else {
+        alert("invalid input");
+      }
     }
   };
 
   return (
     <div className="info-container">
-      <h1 className="info-title">✨Input your information!✨</h1>
+      <h1 className="info-title">
+        ✨Input{" "}
+        <span style={{ color: flag ? "blue" : "red" }}>
+          {flag ? "Student" : "Parent"}
+        </span>{" "}
+        information!✨
+      </h1>
       <form onSubmit={handleSubmit} className="form">
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          value={formData.firstName}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="studentFirstName"
-          placeholder="Student First Name"
-          value={formData.studentFirstName}
-          onChange={handleChange}
-        />
+        {!flag && (
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Parent Email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="firstName"
+              placeholder="Parent First Name"
+              value={formData.firstName}
+              onChange={handleChange}
+            />
+          </div>
+        )}
+
+        {flag && (
+          <input
+            type="text"
+            name="studentFirstName"
+            placeholder="Student First Name"
+            value={formData.studentFirstName}
+            onChange={handleChange}
+          />
+        )}
+
         <div className="button-group">
           <button
             type="button"
