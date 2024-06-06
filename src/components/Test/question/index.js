@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import { Draggable, Droppable } from "react-drag-and-drop";
 import { createClient } from "contentful";
 import { useLocation } from "react-router-dom";
 import Header from "../header";
@@ -13,6 +15,7 @@ export default function Index() {
     "Somewhat Disagree",
   ];
   const [flag, setFlag] = useState(0);
+  const [isParent, setIsParent] = useState(false);
   const [current, setCurrent] = useState(0);
   const [isDisable, setIsDisable] = useState(true);
   const [res, setRes] = useState(new Array(40).fill(0));
@@ -84,9 +87,10 @@ export default function Index() {
       const entries = await client.getEntries({
         content_type: "questions",
       });
-
-      console.log(entries.items[0].fields);
       setData(entries.items[0].fields);
+      if (location.pathname === "/parent") {
+        setIsParent(true);
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
       return [];
@@ -94,18 +98,20 @@ export default function Index() {
   }
 
   const changeValue = (v) => {
-    let tempArr = flag ? [...resChild] : [...res];
+    if (!isParent) {
+      let tempArr = flag ? [...resChild] : [...res];
 
-    if (flag) {
-      tempArr = [...resChild];
-      tempArr[current] = v;
-      setResChild(tempArr);
-    } else {
-      tempArr = [...res];
-      tempArr[current] = v;
-      setRes(tempArr);
-      if (location.pathname !== "/parent") {
-        setIsDisable(false);
+      if (flag) {
+        tempArr = [...resChild];
+        tempArr[current] = v;
+        setResChild(tempArr);
+      } else {
+        tempArr = [...res];
+        tempArr[current] = v;
+        setRes(tempArr);
+        if (location.pathname !== "/parent") {
+          setIsDisable(false);
+        }
       }
     }
   };
@@ -149,23 +155,42 @@ export default function Index() {
     setFlag(0);
   };
 
+  const handleDrop = (type, idx) => {
+    console.log(type, idx);
+    let tempArr = type === "child" ? [...resChild] : [...res];
+
+    if (type === "child") {
+      tempArr = [...resChild];
+      tempArr[current] = idx;
+      setResChild(tempArr);
+    } else {
+      tempArr = [...res];
+      tempArr[current] = idx;
+      setRes(tempArr);
+      if (location.pathname !== "/parent") {
+        setIsDisable(false);
+      }
+    }
+  };
+
   return (
     <div>
       <Header />
       {Object.keys(data).length && (
         <div className="question">
-          {location.pathname === "/parent" && (
+          {isParent && (
             <div className="question-header">
               <div className="parent-container color-red">
-                <div
-                  className="parent-name"
-                  style={{
-                    backgroundColor: flag ? "#fdf3da" : "#f9e09d",
-                  }}
-                  onClick={() => setFlag(false)}
-                >
-                  {JSON.parse(localStorage.getItem("userInfo")).firstName}
-                </div>
+                <Draggable type="item" data="parent">
+                  <div
+                    className="parent-name"
+                    style={{
+                      backgroundColor: "#f9e09d",
+                    }}
+                  >
+                    {JSON.parse(localStorage.getItem("userInfo")).firstName}
+                  </div>
+                </Draggable>
                 <div className="parent-selection">
                   {" "}
                   {types[res[current] - 1]}
@@ -173,18 +198,19 @@ export default function Index() {
               </div>
 
               <div className="child-container color-blue">
-                <div
-                  className="child-name"
-                  style={{
-                    backgroundColor: flag ? "#f9e09d" : "#fdf3da",
-                  }}
-                  onClick={() => setFlag(true)}
-                >
-                  {
-                    JSON.parse(localStorage.getItem("userInfo"))
-                      .studentFirstName
-                  }
-                </div>
+                <Draggable type="item" data="child">
+                  <div
+                    className="child-name"
+                    style={{
+                      backgroundColor: "#f9e09d",
+                    }}
+                  >
+                    {
+                      JSON.parse(localStorage.getItem("userInfo"))
+                        .studentFirstName
+                    }
+                  </div>
+                </Draggable>
                 <div className="child-selection">
                   {" "}
                   {types[resChild[current] - 1]}
@@ -212,54 +238,145 @@ export default function Index() {
                 {data.question[current].fields.title}
               </div>
               <div className="question-answer-container">
-                <div
-                  onClick={() => changeValue(1)}
-                  className="question-card"
-                  style={{
-                    backgroundColor:
-                      (flag ? resChild[current] : res[current]) === 1
+                <Droppable
+                  types={["item"]}
+                  onDrop={(data) => handleDrop(data.item, 1)}
+                >
+                  <div
+                    onClick={() => changeValue(1)}
+                    className={`question-card ${isParent ? "" : "card-hover"}`}
+                    style={{
+                      backgroundColor: isParent
+                        ? ""
+                        : res[current] === 1
                         ? "#ff9999"
                         : "",
-                  }}
+                    }}
+                  >
+                    {isParent && (
+                      <div>
+                        <AiOutlineCheckCircle
+                          style={{
+                            display: res[current] === 1 ? "block" : "none",
+                          }}
+                          className="check-icon1"
+                        />
+                        <AiOutlineCheckCircle
+                          style={{
+                            display: resChild[current] === 1 ? "block" : "none",
+                          }}
+                          className="check-icon2"
+                        />
+                      </div>
+                    )}
+                    Strongly Agree
+                  </div>
+                </Droppable>
+
+                <Droppable
+                  types={["item"]}
+                  onDrop={(data) => handleDrop(data.item, 2)}
                 >
-                  Strongly Agree
-                </div>
-                <div
-                  onClick={() => changeValue(2)}
-                  className="question-card"
-                  style={{
-                    backgroundColor:
-                      (flag ? resChild[current] : res[current]) === 2
+                  <div
+                    onClick={() => changeValue(2)}
+                    className={`question-card ${isParent ? "" : "card-hover"}`}
+                    style={{
+                      backgroundColor: isParent
+                        ? ""
+                        : res[current] === 2
                         ? "#ff9999"
                         : "",
-                  }}
+                    }}
+                  >
+                    {isParent && (
+                      <div>
+                        <AiOutlineCheckCircle
+                          style={{
+                            display: res[current] === 2 ? "block" : "none",
+                          }}
+                          className="check-icon1"
+                        />
+                        <AiOutlineCheckCircle
+                          style={{
+                            display: resChild[current] === 2 ? "block" : "none",
+                          }}
+                          className="check-icon2"
+                        />
+                      </div>
+                    )}
+                    Somewhat Agree
+                  </div>
+                </Droppable>
+
+                <Droppable
+                  types={["item"]}
+                  onDrop={(data) => handleDrop(data.item, 3)}
                 >
-                  Somewhat Agree
-                </div>
-                <div
-                  onClick={() => changeValue(3)}
-                  className="question-card"
-                  style={{
-                    backgroundColor:
-                      (flag ? resChild[current] : res[current]) === 3
+                  <div
+                    onClick={() => changeValue(3)}
+                    className={`question-card ${isParent ? "" : "card-hover"}`}
+                    style={{
+                      backgroundColor: isParent
+                        ? ""
+                        : res[current] === 3
                         ? "#ff9999"
                         : "",
-                  }}
+                    }}
+                  >
+                    {isParent && (
+                      <div>
+                        <AiOutlineCheckCircle
+                          style={{
+                            display: res[current] === 3 ? "block" : "none",
+                          }}
+                          className="check-icon1"
+                        />
+                        <AiOutlineCheckCircle
+                          style={{
+                            display: resChild[current] === 3 ? "block" : "none",
+                          }}
+                          className="check-icon2"
+                        />
+                      </div>
+                    )}
+                    Strongly Disagree
+                  </div>
+                </Droppable>
+
+                <Droppable
+                  types={["item"]}
+                  onDrop={(data) => handleDrop(data.item, 4)}
                 >
-                  Strongly Disagree
-                </div>
-                <div
-                  onClick={() => changeValue(4)}
-                  className="question-card"
-                  style={{
-                    backgroundColor:
-                      (flag ? resChild[current] : res[current]) === 4
+                  <div
+                    onClick={() => changeValue(4)}
+                    className={`question-card ${isParent ? "" : "card-hover"}`}
+                    style={{
+                      backgroundColor: isParent
+                        ? ""
+                        : res[current] === 4
                         ? "#ff9999"
                         : "",
-                  }}
-                >
-                  Somewhat Disagree
-                </div>
+                    }}
+                  >
+                    {isParent && (
+                      <div>
+                        <AiOutlineCheckCircle
+                          style={{
+                            display: res[current] === 4 ? "block" : "none",
+                          }}
+                          className="check-icon1"
+                        />
+                        <AiOutlineCheckCircle
+                          style={{
+                            display: resChild[current] === 4 ? "block" : "none",
+                          }}
+                          className="check-icon2"
+                        />
+                      </div>
+                    )}
+                    Somewhat Disagree
+                  </div>
+                </Droppable>
               </div>
               {location.pathname === "/parent" ? (
                 <div className="question-btn-group">

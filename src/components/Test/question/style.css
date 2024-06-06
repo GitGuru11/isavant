@@ -36,6 +36,7 @@
 }
 
 .question-card {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +50,28 @@
     transition: background-color 0.3s;
 }
 
-.question-card:hover {
+.check-icon1,
+.check-icon2{
+    display: none;
+}
+
+.check-icon1 {
+    font-size: 30px;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    color: #ff80ff;
+}
+
+.check-icon2 {
+    font-size: 30px;
+    position: absolute;
+    top: 10%;
+    right: 35%;
+    color: #8080ff;
+}
+
+.card-hover:hover {
     background-color: #F277C6;
 }
 
