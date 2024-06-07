@@ -12,7 +12,9 @@ export default function index() {
         <div className="assessment-wrap">
           <div className="assessment-left">
             <div className="assessment-title-container">
-              <span className="isavant-txt font-48">The iSavant </span>
+              <span className="isavant-txt font-48">
+                The Native Brilliance{" "}
+              </span>
               <span className="assessment-txt font-48 color-pink">
                 Assessment
               </span>

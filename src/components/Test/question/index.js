@@ -179,7 +179,7 @@ export default function Index() {
       {Object.keys(data).length && (
         <div className="question">
           {isParent && (
-            <div className="question-header">
+            <div className="question-header normal-question-header">
               <div className="parent-container color-red">
                 <Draggable type="item" data="parent">
                   <div
@@ -232,6 +232,44 @@ export default function Index() {
                   <div className="progress-state">{`${current + 1}/${
                     data.question.length
                   }`}</div>
+                </div>
+              </div>
+              <div className="question-header responsive-question-header">
+                <div className="parent-container color-red">
+                  <Draggable type="item" data="parent">
+                    <div
+                      className="parent-name"
+                      style={{
+                        backgroundColor: "#f9e09d",
+                      }}
+                    >
+                      {JSON.parse(localStorage.getItem("userInfo")).firstName}
+                    </div>
+                  </Draggable>
+                  <div className="parent-selection">
+                    {" "}
+                    {types[res[current] - 1]}
+                  </div>
+                </div>
+
+                <div className="child-container color-blue">
+                  <Draggable type="item" data="child">
+                    <div
+                      className="child-name"
+                      style={{
+                        backgroundColor: "#f9e09d",
+                      }}
+                    >
+                      {
+                        JSON.parse(localStorage.getItem("userInfo"))
+                          .studentFirstName
+                      }
+                    </div>
+                  </Draggable>
+                  <div className="child-selection">
+                    {" "}
+                    {types[resChild[current] - 1]}
+                  </div>
                 </div>
               </div>
               <div className="question-title font-48">

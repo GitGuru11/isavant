@@ -12,6 +12,7 @@ import "./style.css";
 export default function Index() {
   const [imageUrl, setImageUrl] = useState(MonsterMan);
   const [chairImgUrl, setChairImgUrl] = useState(Chair);
+  const [cardIdx, setCardIdx] = useState(0);
   const [data, setData] = useState({});
   const [isOpen, setIsOpen] = useState(-1);
   const deliveryAPIKey = "plTZGADCcTmhI34oYFEG0IJ4M_Dp03C-zwO2xMac0v8";
@@ -158,13 +159,23 @@ export default function Index() {
           </div>
 
           <div className="list-container">
-            {data.cardTitles.map((item) => (
-              <div className="list-item bg-white">{item}</div>
+            {data.cardTitles.map((item, idx) => (
+              <div
+                style={{
+                  backgroundColor: `${cardIdx === idx ? "#F277C6" : ""}`,
+                }}
+                className="list-item bg-white"
+                onClick={() => setCardIdx(idx)}
+              >
+                {item}
+              </div>
             ))}
           </div>
 
           <div>
-            <div className="artist-title color-pink">{data.title10}</div>
+            <div className="artist-title color-pink">
+              {data.cardTitles[cardIdx]}
+            </div>
             {data.dropCards.map((item, index) => (
               <div
                 className={`collapse-container ${
@@ -215,17 +226,52 @@ export default function Index() {
           </div>
 
           <div>
-            <div className="escape-title film-title">{data.title11}</div>
+            <div className="escape-title film-title">
+              {data.cardTitles[cardIdx].split("[")[0]}from Film/TV
+            </div>
 
             <div className="list-container">
-              {data.cards.map((item) => (
-                <div className="list-item bg-black">
-                  <span className="bold color-pink">
-                    {item.fields.title[0]}
-                  </span>{" "}
-                  {item.fields.title[1]}
-                </div>
-              ))}
+              <div className="list-item bg-black">
+                <span className="bold color-pink">
+                  {data.cards[cardIdx].fields.cardContent[0]}
+                </span>{" "}
+                {data.cards[cardIdx].fields.cardContent[1]}
+              </div>
+
+              <div className="list-item bg-black">
+                <span className="bold color-pink">
+                  {data.cards[cardIdx].fields.cardContent2[0]}
+                </span>{" "}
+                {data.cards[cardIdx].fields.cardContent2[1]}
+              </div>
+
+              <div className="list-item bg-black">
+                <span className="bold color-pink">
+                  {data.cards[cardIdx].fields.cardContent3[0]}
+                </span>{" "}
+                {data.cards[cardIdx].fields.cardContent3[1]}
+              </div>
+
+              <div className="list-item bg-black">
+                <span className="bold color-pink">
+                  {data.cards[cardIdx].fields.cardContent4[0]}
+                </span>{" "}
+                {data.cards[cardIdx].fields.cardContent4[1]}
+              </div>
+
+              <div className="list-item bg-black">
+                <span className="bold color-pink">
+                  {data.cards[cardIdx].fields.cardContent5[0]}
+                </span>{" "}
+                {data.cards[cardIdx].fields.cardContent[1]}
+              </div>
+
+              <div className="list-item bg-black">
+                <span className="bold color-pink">
+                  {data.cards[cardIdx].fields.cardContent[0]}
+                </span>{" "}
+                {data.cards[cardIdx].fields.cardContent[1]}
+              </div>
             </div>
           </div>
 

@@ -175,15 +175,15 @@ export default function Index() {
             </div>
           </div>
 
-          {data.parts.map((item, index) => (
+          {
             <div className="brilliance-item-container">
               <div
                 className={`escape-heading ${
-                  index ? "" : "title-hidden"
+                  0 ? "" : "title-hidden"
                 } integrate-title`}
               >
                 <img src={data.sunIcon.fields.file.url}></img>
-                <span className="color-pink">{item.fields.title}</span>
+                <span className="color-pink">{data.parts[0].fields.title}</span>
               </div>
 
               <div className="escape-heading native-title">
@@ -194,37 +194,39 @@ export default function Index() {
               <div className="unique-container brilliance-item-wrap">
                 <div className="unique-content social-content">
                   <div className="font-45 brilliance-item-title text-center">
-                    <span className="color-pink">{item.fields.title}</span>
+                    <span className="color-pink">
+                      {data.parts[0].fields.title}
+                    </span>
                   </div>
                   <div className="escape-content forest-content strategic-title font-35">
-                    {item.fields.subTitle1}
+                    {data.parts[0].fields.subTitle1}
                   </div>
                   <div className="escape-content forest-content">
-                    {item.fields.leftContent}
+                    {data.parts[0].fields.leftContent}
                   </div>
                 </div>
                 <img className="stand-img social-img" src={sunlight}></img>
               </div>
 
               <div className="unique-content artist-content">
-                {item.fields.downContent1}
+                {data.parts[0].fields.downContent1}
               </div>
 
               <div className="unique-content artist-content">
-                {item.fields.downContent2}
+                {data.parts[0].fields.downContent2}
               </div>
 
               <div className="panel-container career-card-container">
                 <div className="career-panel-title font-35">
-                  {item.fields.subTitle2}
+                  {data.parts[0].fields.subTitle2}
                 </div>
                 <div className="panel type-panel career-panel">
                   <div className="panel-circle career-circle">1</div>
                   <div className="panel-content career-content">
                     <div className="type-panel-title color-pink">
-                      {item.fields.title1}
+                      {data.parts[0].fields.title1}
                     </div>
-                    {item.fields.content1}
+                    {data.parts[0].fields.content1}
                   </div>
                 </div>
 
@@ -232,36 +234,36 @@ export default function Index() {
                   <div className="panel-circle career-circle">2</div>
                   <div className="panel-content career-content">
                     <div className="type-panel-title color-pink">
-                      {item.fields.title2}
+                      {data.parts[0].fields.title2}
                     </div>
-                    {item.fields.content2}
+                    {data.parts[0].fields.content2}
                   </div>
                 </div>
                 <div className="panel type-panel career-panel">
                   <div className="panel-circle career-circle">3</div>
                   <div className="panel-content career-content">
                     <div className="type-panel-title color-pink">
-                      {item.fields.title3}
+                      {data.parts[0].fields.title3}
                     </div>
-                    {item.fields.content3}
+                    {data.parts[0].fields.content3}
                   </div>
                 </div>
                 <div className="panel type-panel career-panel">
                   <div className="panel-circle career-circle">4</div>
                   <div className="panel-content career-content">
                     <div className="type-panel-title color-pink">
-                      {item.fields.title}
+                      {data.parts[0].fields.title}
                     </div>
-                    {item.fields.content4}
+                    {data.parts[0].fields.content4}
                   </div>
                 </div>
               </div>
 
               <div className="unique-content artist-content">
-                {item.fields.downContent}
+                {data.parts[0].fields.downContent}
               </div>
             </div>
-          ))}
+          }
         </div>
       )}
       <ScrollToTop smooth />
