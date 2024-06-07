@@ -14,7 +14,7 @@ export default function Index() {
   const [chairImgUrl, setChairImgUrl] = useState(Chair);
   const [cardIdx, setCardIdx] = useState(0);
   const [data, setData] = useState({});
-  const [isOpen, setIsOpen] = useState(-1);
+  const [isOpen, setIsOpen] = useState(0);
   const deliveryAPIKey = "plTZGADCcTmhI34oYFEG0IJ4M_Dp03C-zwO2xMac0v8";
   const spaceId = "mwnrlr44qowg";
 
@@ -165,7 +165,10 @@ export default function Index() {
                   backgroundColor: `${cardIdx === idx ? "#F277C6" : ""}`,
                 }}
                 className="list-item bg-white"
-                onClick={() => setCardIdx(idx)}
+                onClick={() => {
+                  setCardIdx(idx);
+                  setIsOpen(idx);
+                }}
               >
                 {item}
               </div>
