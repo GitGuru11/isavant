@@ -14,7 +14,7 @@ export default function Index() {
   const [chairImgUrl, setChairImgUrl] = useState(Chair);
   const [cardIdx, setCardIdx] = useState(0);
   const [data, setData] = useState({});
-  const [isOpen, setIsOpen] = useState(0);
+  const [isOpen, setIsOpen] = useState(-1);
   const deliveryAPIKey = "plTZGADCcTmhI34oYFEG0IJ4M_Dp03C-zwO2xMac0v8";
   const spaceId = "mwnrlr44qowg";
 
@@ -159,6 +159,7 @@ export default function Index() {
           </div>
 
           <div className="list-container">
+            {console.log(cardIdx)}
             {data.cardTitles.map((item, idx) => (
               <div
                 style={{
@@ -167,7 +168,6 @@ export default function Index() {
                 className="list-item bg-white"
                 onClick={() => {
                   setCardIdx(idx);
-                  setIsOpen(idx);
                 }}
               >
                 {item}
@@ -179,7 +179,7 @@ export default function Index() {
             <div className="artist-title color-pink">
               {data.cardTitles[cardIdx]}
             </div>
-            {data.dropCards.map((item, index) => (
+            {data.dropCards[cardIdx].fields.test.contents.map((item, index) => (
               <div
                 className={`collapse-container ${
                   isOpen === index ? "bg-black" : "bg-white"
@@ -191,7 +191,7 @@ export default function Index() {
                       isOpen === index ? "color-pink" : ""
                     }`}
                   >
-                    {item.fields.title}
+                    {item.title}
                   </div>
                   {isOpen === index ? (
                     <IoIosRemove
@@ -215,12 +215,10 @@ export default function Index() {
                   }}
                 >
                   {isOpen === index &&
-                    item.fields.content.map((txt) => (
+                    item.content.map((txt) => (
                       <div>
-                        <span className="bold">{txt.split(":")[0]}:</span> They
-                        may struggle with performance anxiety, fearing negative
-                        judgment on their abilities, leading to
-                        underparticipation or avoidance of challenging tasks.
+                        <span className="bold">{txt.split(":")[0]}:</span>
+                        {txt.split(":")[1]}
                       </div>
                     ))}
                 </div>
