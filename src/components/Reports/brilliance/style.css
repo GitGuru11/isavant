@@ -1,3 +1,22 @@
+.brilliance {
+}
+
+.unlock-icon-wrap {
+    position: -webkit-sticky;
+    position: sticky ;
+    top:0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.unlock-icon-wrap img {
+    width: 150px;
+    margin-top: 3vw;
+    margin-right: 3vw;
+}
+
+
 .brilliance-down {
     display: block;
 }
@@ -221,6 +240,10 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .unlock-icon-wrap img {
+        width: 100px;
+    }
+
     .brilliance-card {
         width: 100%;
         font-size: 20px;

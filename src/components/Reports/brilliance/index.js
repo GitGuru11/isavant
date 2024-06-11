@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ScrollToTop from "react-scroll-to-top";
 import { createClient } from "contentful";
+import Unlock from "../../../resources/imgs/unlock.png";
 import Footer from "../footer";
 import "./style.css";
 
@@ -55,6 +56,9 @@ export default function Index() {
 
   return (
     <div className="brilliance">
+      <div className="unlock-icon-wrap">
+        <img className="unlock-icon" src={Unlock}></img>
+      </div>
       <Footer flag={1} />
       {Object.keys(data).length && (
         <div className="report-container">

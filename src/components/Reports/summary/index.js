@@ -6,6 +6,7 @@ import MonsterMan from "../../../resources/imgs/reports/monster_man.svg";
 import ResMonsterMan from "../../../resources/imgs/reports/responsive/monster_man.svg";
 import Chair from "../../../resources/imgs/reports/chair.svg";
 import ResChair from "../../../resources/imgs/reports/responsive/chair.svg";
+import Unlock from "../../../resources/imgs/unlock.png";
 import Footer from "../footer";
 import "./style.css";
 
@@ -60,6 +61,9 @@ export default function Index() {
 
   return (
     <div className="report">
+      <div className="unlock-icon-wrap">
+        <img className="unlock-icon" src={Unlock}></img>
+      </div>
       <Footer flag={0} />
       {Object.keys(data).length && (
         <div className="report-container">
@@ -159,7 +163,6 @@ export default function Index() {
           </div>
 
           <div className="list-container">
-            {console.log(cardIdx)}
             {data.cardTitles.map((item, idx) => (
               <div
                 style={{

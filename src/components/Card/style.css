@@ -12,20 +12,29 @@
 }
 
 .card-wrap {
-    width: 50%;
+    width: 60%;
     padding: 70px 65px;
     margin: 80px 0px;
     background-color: #FFFFFF;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between !important;
     align-items: center;
     border-radius: 26px;
+    gap: 100px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .card-content {
-    width: 68%;
+    width: fit-content !important;
+    display: flex;
+    flex-direction: column;
     font-weight: 550;
-    font-size: 34px;
+    font-size: 25px;
 }
 
 .flower-container {
@@ -34,6 +43,21 @@
 
 .flower-container img {
     float: right;
+}
+
+.card-subTitle {
+    cursor: pointer;
+}
+
+.card-subTitle:hover {
+    color: #F277C6;
+}
+
+.card-subContent {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 15px;
+    line-height: 25px;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -59,6 +83,7 @@
 
 @media only screen and (max-width: 1024px) {
     .card-wrap {
+        flex-direction: column;
         width: 70%;
         padding: 70px 65px;
     }
@@ -67,11 +92,6 @@
         width: 150px;
     }
 
-    .card-content {
-        width: 68%;
-        font-weight: 550;
-        font-size: 25px;
-    }
 
     .flower-container img {
         width: 500px;
@@ -88,11 +108,6 @@
         width: 120px;
     }
 
-    .card-content {
-        width: 68%;
-        font-weight: 550;
-        font-size: 22px;
-    }
 
     .flower-container img {
         width: 500px;
@@ -104,8 +119,8 @@
         margin-top: 50px;
     }
 
-    .card-title {
-        font-size: 25px;
+    .card-subContent {
+        font-size: 17px;
     }
 
     .card-wrap {
@@ -139,14 +154,18 @@
         width: 75px;
     }
 
+    .card-subContent {
+        font-size: 15px;
+    }
+
     .card-title {
         text-align: center;
     }
 
     .card-content {
-        width: 80%;
+        margin: auto;
+        width: 90% !important;
         font-size: 17px;
-        text-align: center;
     }
 
     .flower-container img {

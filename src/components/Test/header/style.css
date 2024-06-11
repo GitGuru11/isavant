@@ -5,21 +5,23 @@
     height: 90px;
     padding: 0px 37px;
     background-color: #EBEBEB;
-    font-weight: 500;
-    font-size: 28px;
     color: #666680;
     display: flex;
     align-items: center;
 }
 
+.test-header img {
+    width: 350px;
+}
+
 @media only screen and (max-width: 1024px) {
-    .test-header {
-        font-size: 25px;
+    .test-header img {
+        width: 250px;
     }
 }
 
 @media only screen and (max-width: 425px) {
-    .test-header {
-        font-size: 20px;
+    .test-header img {
+        width: 150px;
     }
 }
