@@ -95,7 +95,7 @@ export default function Index() {
 
   const [data, setData] = useState([
     {
-      title: "Toxic guts and sinuses",
+      title: "Toxic gut and sinuses",
       iconUrl: H2O,
       content: [
         {
@@ -360,7 +360,7 @@ export default function Index() {
         </div>
 
         <div className="toxic-txt">
-          <span>Toxic Enviroment + Stress Monster</span>
+          <span>Toxic Environment + Stress Monster Feedback Loop</span>
         </div>
         <Card
           title="Toxic Air"
@@ -417,7 +417,7 @@ export default function Index() {
         />
 
         <Card
-          title="Darkness"
+          title="(Infrared) Darkness"
           cardContent={[
             {
               title: "What is the Most Abundant Molecule in the Human Body?",
@@ -665,7 +665,7 @@ export default function Index() {
         </div>
 
         <Card
-          title="Healthy Guts and Sinuses"
+          title="Healthy Gut and Sinuses"
           content="Outside of persistent toxin exposure, anti-inflammatory hormones like MSH and VIP return to healthy levels "
           iconUrl={Pipe}
           imgUrl={Woman}

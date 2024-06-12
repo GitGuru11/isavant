@@ -26,10 +26,10 @@ export default function Index() {
     const handleResize = () => {
       if (window.innerWidth <= 1024) {
         setImageUrl(data.resImg1.fields.file.url);
-        setSunlight(data.parts[0].fields.resImg.fields.file.url);
+        //setSunlight(data.resSumImg.fields.file.url);
       } else {
         setImageUrl(data.img1.fields.file.url);
-        setSunlight(data.parts[0].fields.img.fields.file.url);
+        //setSunlight(data.sunImg.fields.file.url);
       }
     };
 
@@ -39,15 +39,32 @@ export default function Index() {
   }, [data]);
 
   async function getData() {
-    try {
-      const entries = await client.getEntries({
-        content_type: "brilliance",
-      });
+    // try {
+    //   const entries = await client.getEntries({
+    //     content_type: "brilliance",
+    //   });
 
-      console.log(entries.items[0].fields);
-      setData(entries.items[0].fields);
-      setImageUrl(entries.items[0].fields.img1.fields.file.url);
-      setSunlight(entries.items[0].fields.parts[0].fields.img.fields.file.url);
+    //   console.log(entries.items[0].fields);
+    //   setData(entries.items[0].fields);
+    //   setImageUrl(entries.items[0].fields.img1.fields.file.url);
+    //   setSunlight(entries.items[0].fields.parts[0].fields.img.fields.file.url);
+    // } catch (error) {
+    //   console.error("Error fetching data:", error);
+    //   return [];
+    // }
+
+    try {
+      await client
+        .getEntry("5zbSdpJXmpqFroAQxGxy2d")
+        .then((entries) => {
+          console.log(entries.fields);
+          setData(entries.fields);
+          setImageUrl(entries.fields.img1.fields.file.url);
+          setSunlight(data.sunImg.fields.file.url);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     } catch (error) {
       console.error("Error fetching data:", error);
       return [];
@@ -123,18 +140,23 @@ export default function Index() {
             ></img>
           </div>
 
-          {data.contentsBottom.map((item) => (
-            <div className="unique-content artist-content">
-              {item.fields.content}
-            </div>
-          ))}
+          {data.contentsBottom &&
+            data.contentsBottom.map((item) => (
+              <div className="unique-content artist-content">
+                {item.fields.content}
+              </div>
+            ))}
 
           <div>
-            <div className="escape-heading">
+            <div className="escape-heading mt-100">
               <span className="escape-heading-black">{data.title3}</span>
             </div>
 
-            <div className="unique-content artist-content">{data.content3}</div>
+            {data.content3.map((item) => (
+              <div className="unique-content artist-content">
+                {item.fields.content}
+              </div>
+            ))}
 
             <div className="panel-container type-panel-container">
               {data.cards.map((item, index) => (
@@ -209,7 +231,10 @@ export default function Index() {
                     {data.parts[0].fields.leftContent}
                   </div>
                 </div>
-                <img className="stand-img social-img" src={sunlight}></img>
+                <img
+                  className="stand-img social-img"
+                  src={data.sunImg.fields.file.url}
+                ></img>
               </div>
 
               <div className="unique-content artist-content">
@@ -224,43 +249,17 @@ export default function Index() {
                 <div className="career-panel-title font-35">
                   {data.parts[0].fields.subTitle2}
                 </div>
-                <div className="panel type-panel career-panel">
-                  <div className="panel-circle career-circle">1</div>
-                  <div className="panel-content career-content">
-                    <div className="type-panel-title color-pink">
-                      {data.parts[0].fields.title1}
+                {data.parts[0].fields.brillianceCards.cards.map((item) => (
+                  <div className="panel type-panel career-panel">
+                    <div className="panel-circle career-circle">1</div>
+                    <div className="panel-content career-content">
+                      <div className="type-panel-title color-pink">
+                        {item.title}
+                      </div>
+                      {item.content}
                     </div>
-                    {data.parts[0].fields.content1}
                   </div>
-                </div>
-
-                <div className="panel type-panel career-panel">
-                  <div className="panel-circle career-circle">2</div>
-                  <div className="panel-content career-content">
-                    <div className="type-panel-title color-pink">
-                      {data.parts[0].fields.title2}
-                    </div>
-                    {data.parts[0].fields.content2}
-                  </div>
-                </div>
-                <div className="panel type-panel career-panel">
-                  <div className="panel-circle career-circle">3</div>
-                  <div className="panel-content career-content">
-                    <div className="type-panel-title color-pink">
-                      {data.parts[0].fields.title3}
-                    </div>
-                    {data.parts[0].fields.content3}
-                  </div>
-                </div>
-                <div className="panel type-panel career-panel">
-                  <div className="panel-circle career-circle">4</div>
-                  <div className="panel-content career-content">
-                    <div className="type-panel-title color-pink">
-                      {data.parts[0].fields.title}
-                    </div>
-                    {data.parts[0].fields.content4}
-                  </div>
-                </div>
+                ))}
               </div>
 
               <div className="unique-content artist-content">

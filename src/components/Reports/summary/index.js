@@ -2,20 +2,16 @@ import React, { useState, useEffect } from "react";
 import ScrollToTop from "react-scroll-to-top";
 import { IoIosAddCircle, IoIosRemove } from "react-icons/io";
 import { createClient } from "contentful";
-import MonsterMan from "../../../resources/imgs/reports/monster_man.svg";
-import ResMonsterMan from "../../../resources/imgs/reports/responsive/monster_man.svg";
-import Chair from "../../../resources/imgs/reports/chair.svg";
-import ResChair from "../../../resources/imgs/reports/responsive/chair.svg";
 import Unlock from "../../../resources/imgs/unlock.png";
 import Footer from "../footer";
 import "./style.css";
 
 export default function Index() {
-  const [imageUrl, setImageUrl] = useState(MonsterMan);
-  const [chairImgUrl, setChairImgUrl] = useState(Chair);
+  const [imageUrl, setImageUrl] = useState("");
   const [cardIdx, setCardIdx] = useState(0);
   const [data, setData] = useState({});
   const [isOpen, setIsOpen] = useState(-1);
+
   const deliveryAPIKey = "plTZGADCcTmhI34oYFEG0IJ4M_Dp03C-zwO2xMac0v8";
   const spaceId = "mwnrlr44qowg";
 
@@ -25,20 +21,22 @@ export default function Index() {
   });
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 1024) {
-        setImageUrl(ResMonsterMan);
-        setChairImgUrl(ResChair);
-      } else {
-        setImageUrl(MonsterMan);
-      }
-    };
-    window.addEventListener("resize", handleResize);
+    getData();
   }, []);
 
   useEffect(() => {
-    getData();
-  }, []);
+    const handleResize = () => {
+      if (window.innerWidth <= 1024) {
+        setImageUrl(data.resImg1.fields.file.url);
+      } else {
+        setImageUrl(data.img1.fields.file.url);
+      }
+    };
+
+    if (Object.keys(data).length) {
+      window.addEventListener("resize", handleResize);
+    }
+  }, [data]);
 
   const open = (idx) => {
     setIsOpen(idx);
@@ -46,13 +44,16 @@ export default function Index() {
 
   async function getData() {
     try {
-      const entries = await client.getEntries({
-        content_type: "summary",
-      });
-
-      console.log(entries.items[0].fields);
-      setData(entries.items[0].fields);
-      setImageUrl(entries.items[0].fields.img1.fields.file.url);
+      await client
+        .getEntry("36M4eJqBLDmtsMoXM4bVeI")
+        .then((entries) => {
+          console.log(entries.fields);
+          setData(entries.fields);
+          setImageUrl(entries.fields.img1.fields.file.url);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     } catch (error) {
       console.error("Error fetching data:", error);
       return [];
@@ -90,9 +91,22 @@ export default function Index() {
           </div>
 
           <div className="unique-container">
-            <img className="stand-img" src={chairImgUrl}></img>
-            <div className="unique-content">{data.content2}</div>
+            <img className="stand-img" src={data.img2.fields.file.url}></img>
+            <div className="unique-content">
+              <div className="">{data.content2}</div>
+              <div className="unique-subcontent">{data.content21}</div>
+            </div>
           </div>
+
+          {data.content22 && (
+            <div>
+              {data.content22.map((item) => (
+                <div className="unique-content artist-content flow-content">
+                  {item.fields.content}
+                </div>
+              ))}
+            </div>
+          )}
 
           <div>
             <div className="artist-title">{data.title3}</div>
@@ -114,6 +128,30 @@ export default function Index() {
             <div className="unique-content artist-content flow-content">
               {data.content5}
             </div>
+
+            {data.title51 && data.content51 && (
+              <div>
+                <div className="artist-title">{data.title51}</div>
+
+                {data.content51.map((item) => (
+                  <div className="unique-content artist-content">
+                    {item.fields.content}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {data.title52 && data.content52 && (
+              <div>
+                <div className="artist-title">{data.title52}</div>
+
+                {data.content52.map((item) => (
+                  <div className="unique-content artist-content">
+                    {item.fields.content}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="pattern-container">
@@ -135,25 +173,46 @@ export default function Index() {
           <div>
             <div className="escape-title">{data.title7}</div>
             <div className="unique-content artist-content">{data.content7}</div>
+            {data.content71 && (
+              <div className="unique-content artist-content">
+                {data.content71}
+              </div>
+            )}
           </div>
 
           <div>
-            <div className="escape-heading">
-              <span className="escape-heading-black">{data.title8[0]}</span>
+            {data.title8 && (
+              <div className="escape-heading">
+                <span className="escape-heading-black">{data.title8[0]}</span>
 
-              <span className="escape-heading-pink"> {data.title8[1]} </span>
+                <span className="escape-heading-pink"> {data.title8[1]} </span>
 
-              <span className="escape-heading-black">{data.title8[2]}</span>
-            </div>
-
-            <div className="unique-container">
-              <div className="unique-content social-content">
-                {data.content8}
+                <span className="escape-heading-black">{data.title8[2]}</span>
               </div>
-              <img
-                className="stand-img social-img"
-                src={data.img8.fields.file.url}
-              ></img>
+            )}
+
+            {data.content8 && (
+              <div className="unique-container">
+                <div className="unique-content social-content">
+                  <div>{data.content8}</div>
+                  {data.content81 && (
+                    <div className="unique-subcontent">{data.content81}</div>
+                  )}
+                </div>
+                <img
+                  className="stand-img social-img"
+                  src={data.img8.fields.file.url}
+                ></img>
+              </div>
+            )}
+
+            <div>
+              {data.content82 &&
+                data.content82.map((item) => (
+                  <div className="unique-content artist-content">
+                    {item.fields.content}
+                  </div>
+                ))}
             </div>
           </div>
 
