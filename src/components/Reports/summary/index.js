@@ -11,6 +11,14 @@ export default function Index() {
   const [cardIdx, setCardIdx] = useState(0);
   const [data, setData] = useState({});
   const [isOpen, setIsOpen] = useState(-1);
+  const ids = [
+    "5Ew17D2Cm9h9xJp29pEfJq",
+    "3CqvsgiPDBahqgHg7gI6KI",
+    "2GAxdc0XT5WlrSrNBvb2Il",
+    "6LqmhdRcA2wkUdLhcfxNHh",
+    "2dfax6LovoHMtOdXCn77ph",
+    "36M4eJqBLDmtsMoXM4bVeI",
+  ];
 
   const deliveryAPIKey = "plTZGADCcTmhI34oYFEG0IJ4M_Dp03C-zwO2xMac0v8";
   const spaceId = "mwnrlr44qowg";
@@ -45,7 +53,7 @@ export default function Index() {
   async function getData() {
     try {
       await client
-        .getEntry("36M4eJqBLDmtsMoXM4bVeI")
+        .getEntry(ids[getRandomIntInclusive(0, 5)])
         .then((entries) => {
           console.log(entries.fields);
           setData(entries.fields);
@@ -59,6 +67,12 @@ export default function Index() {
       return [];
     }
   }
+
+  const getRandomIntInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
 
   return (
     <div className="report">

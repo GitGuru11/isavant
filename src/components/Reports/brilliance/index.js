@@ -9,6 +9,15 @@ export default function Index() {
   const [imageUrl, setImageUrl] = useState();
   const [sunlight, setSunlight] = useState();
   const [data, setData] = useState({});
+  const [idx, setIdx] = useState(0);
+  const ids = [
+    "7pJka07pLqH23NjF5hP9JB",
+    "1AWpeZHm6RxKGpPwAwe37X",
+    "5paTeUKpb9S3R1IzaN7hWc",
+    "3hADLN0UxwfLftxddaRbbQ",
+    "6fnDigajtRKq5pBKn1gTST",
+    "5zbSdpJXmpqFroAQxGxy2d",
+  ];
 
   const deliveryAPIKey = "plTZGADCcTmhI34oYFEG0IJ4M_Dp03C-zwO2xMac0v8";
   const spaceId = "mwnrlr44qowg";
@@ -55,12 +64,13 @@ export default function Index() {
 
     try {
       await client
-        .getEntry("5zbSdpJXmpqFroAQxGxy2d")
+        .getEntry(ids[getRandomIntInclusive(0, 5)])
         .then((entries) => {
           console.log(entries.fields);
           setData(entries.fields);
           setImageUrl(entries.fields.img1.fields.file.url);
           setSunlight(data.sunImg.fields.file.url);
+          setIdx(0, 5);
         })
         .catch((error) => {
           console.log(error);
@@ -70,6 +80,12 @@ export default function Index() {
       return [];
     }
   }
+
+  const getRandomIntInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
 
   return (
     <div className="brilliance">
@@ -108,13 +124,17 @@ export default function Index() {
             </div>
           </div>
 
+          {data.title21 && <div className="small-title">{data.title21}</div>}
+
           <div>
             <div className="escape-heading">
-              <span className="escape-heading-black">{data.title2[0]}</span>
-
-              <span className="escape-heading-pink"> {data.title2[1]} </span>
-
-              <span className="escape-heading-black">{data.title2[2]}</span>
+              {data.title2.map((item, index) =>
+                index % 2 ? (
+                  <span className="escape-heading-pink"> {item} </span>
+                ) : (
+                  <span className="escape-heading-black">{item}</span>
+                )
+              )}
             </div>
 
             <div className="capacity-content">
@@ -249,17 +269,21 @@ export default function Index() {
                 <div className="career-panel-title font-35">
                   {data.parts[0].fields.subTitle2}
                 </div>
-                {data.parts[0].fields.brillianceCards.cards.map((item) => (
-                  <div className="panel type-panel career-panel">
-                    <div className="panel-circle career-circle">1</div>
-                    <div className="panel-content career-content">
-                      <div className="type-panel-title color-pink">
-                        {item.title}
+                {data.parts[0].fields.brillianceCards.cards.map(
+                  (item, index) => (
+                    <div className="panel type-panel career-panel">
+                      <div className="panel-circle career-circle">
+                        {index + 1}
                       </div>
-                      {item.content}
+                      <div className="panel-content career-content">
+                        <div className="type-panel-title color-pink">
+                          {item.title}
+                        </div>
+                        {item.content}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                )}
               </div>
 
               <div className="unique-content artist-content">

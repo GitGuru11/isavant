@@ -144,6 +144,15 @@
     display: none !important;
 }
 
+.small-title {
+    text-align: center;
+    margin: 50px auto;
+    font-weight: 700;
+    font-size: 35px;
+    font-style: italic;
+    color:#F277C6
+}
+
 @media only screen and (max-width: 1440px) {
     .type-panel-container {
         flex-wrap: wrap;
