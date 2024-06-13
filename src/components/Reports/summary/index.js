@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import ScrollToTop from "react-scroll-to-top";
 import { IoIosAddCircle, IoIosRemove } from "react-icons/io";
+import { notification } from "antd";
 import { createClient } from "contentful";
+import Lock from "../../../resources/imgs/lock.png";
 import Unlock from "../../../resources/imgs/unlock.png";
 import Footer from "../footer";
 import "./style.css";
 
 export default function Index() {
+  const [api, contextHolder] = notification.useNotification();
+
+  const [lock, setLock] = useState(true);
   const [imageUrl, setImageUrl] = useState("");
   const [cardIdx, setCardIdx] = useState(0);
   const [data, setData] = useState({});
@@ -68,16 +73,46 @@ export default function Index() {
     }
   }
 
+  const openNotification = (placement) => {
+    api.info({
+      message: <b>Test</b>,
+      description: (
+        <div className="notification-content">
+          <b>Take the first step to unlocking your Native Brilliance.</b>
+          <br />
+          Take a quick 5-min vision assessment to test for resolvable chronic
+          neuro-inflammation.
+        </div>
+      ),
+      placement,
+      style: {
+        width: 550,
+      },
+    });
+  };
+
   const getRandomIntInclusive = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
+  const locker = () => {
+    if (lock) {
+      openNotification("top");
+    }
+    setLock(!lock);
+  };
+
   return (
     <div className="report">
+      {contextHolder}
       <div className="unlock-icon-wrap">
-        <img className="unlock-icon" src={Unlock}></img>
+        <img
+          className="unlock-icon"
+          src={lock ? Lock : Unlock}
+          onClick={() => locker()}
+        ></img>
       </div>
       <Footer flag={0} />
       {Object.keys(data).length && (

@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ScrollToTop from "react-scroll-to-top";
+import { notification } from "antd";
 import { createClient } from "contentful";
+import Lock from "../../../resources/imgs/lock.png";
 import Unlock from "../../../resources/imgs/unlock.png";
 import Footer from "../footer";
 import "./style.css";
 
 export default function Index() {
+  const [api, contextHolder] = notification.useNotification();
+
+  const [lock, setLock] = useState(true);
   const [imageUrl, setImageUrl] = useState();
   const [sunlight, setSunlight] = useState();
   const [data, setData] = useState({});
@@ -49,20 +54,6 @@ export default function Index() {
   }, [data]);
 
   async function getData() {
-    // try {
-    //   const entries = await client.getEntries({
-    //     content_type: "brilliance",
-    //   });
-
-    //   console.log(entries.items[0].fields);
-    //   setData(entries.items[0].fields);
-    //   setImageUrl(entries.items[0].fields.img1.fields.file.url);
-    //   setSunlight(entries.items[0].fields.parts[0].fields.img.fields.file.url);
-    // } catch (error) {
-    //   console.error("Error fetching data:", error);
-    //   return [];
-    // }
-
     try {
       const reports = await client.getEntries({
         content_type: "brilliancePart",
@@ -85,16 +76,46 @@ export default function Index() {
     }
   }
 
+  const openNotification = (placement) => {
+    api.info({
+      message: <b>Test</b>,
+      description: (
+        <div className="notification-content">
+          <b>Take the first step to unlocking your Native Brilliance.</b>
+          <br />
+          Take a quick 5-min vision assessment to test for resolvable chronic
+          neuro-inflammation.
+        </div>
+      ),
+      placement,
+      style: {
+        width: 550,
+      },
+    });
+  };
+
   const getRandomIntInclusive = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
+  const locker = () => {
+    if (lock) {
+      openNotification("top");
+    }
+    setLock(!lock);
+  };
+
   return (
     <div className="brilliance">
+      {contextHolder}
       <div className="unlock-icon-wrap">
-        <img className="unlock-icon" src={Unlock}></img>
+        <img
+          className="unlock-icon"
+          src={lock ? Lock : Unlock}
+          onClick={() => locker()}
+        ></img>
       </div>
       <Footer flag={1} />
       {Object.keys(data).length && (
