@@ -32,6 +32,7 @@ export default function Index() {
   }, []);
 
   useEffect(() => {
+    console.log(data);
     const handleResize = () => {
       if (window.innerWidth <= 1024) {
         setImageUrl(data.resImg1.fields.file.url);
@@ -63,11 +64,14 @@ export default function Index() {
     // }
 
     try {
+      const reports = await client.getEntries({
+        content_type: "brilliancePart",
+      });
+
       await client
         .getEntry(ids[getRandomIntInclusive(0, 5)])
         .then((entries) => {
-          console.log(entries.fields);
-          setData(entries.fields);
+          setData({ ...entries.fields, reports: reports });
           setImageUrl(entries.fields.img1.fields.file.url);
           setSunlight(data.sunImg.fields.file.url);
           setIdx(0, 5);
@@ -221,15 +225,20 @@ export default function Index() {
             </div>
           </div>
 
-          {
+          {data.reports.items.map((report) => (
             <div className="brilliance-item-container">
+              <div className="escape-heading integrated-native-title">
+                Your Integrated{" "}
+                <span className="color-pink">Brilliance Type</span>
+              </div>
+
               <div
                 className={`escape-heading ${
                   0 ? "" : "title-hidden"
                 } integrate-title`}
               >
                 <img src={data.sunIcon.fields.file.url}></img>
-                <span className="color-pink">{data.parts[0].fields.title}</span>
+                <span className="color-pink">{report.fields.title}</span>
               </div>
 
               <div className="escape-heading native-title">
@@ -240,15 +249,13 @@ export default function Index() {
               <div className="unique-container brilliance-item-wrap">
                 <div className="unique-content social-content">
                   <div className="font-45 brilliance-item-title text-center">
-                    <span className="color-pink">
-                      {data.parts[0].fields.title}
-                    </span>
+                    <span className="color-pink">{report.fields.title}</span>
                   </div>
                   <div className="escape-content forest-content strategic-title font-35">
-                    {data.parts[0].fields.subTitle1}
+                    {report.fields.subTitle1}
                   </div>
                   <div className="escape-content forest-content">
-                    {data.parts[0].fields.leftContent}
+                    {report.fields.leftContent}
                   </div>
                 </div>
                 <img
@@ -258,39 +265,37 @@ export default function Index() {
               </div>
 
               <div className="unique-content artist-content">
-                {data.parts[0].fields.downContent1}
+                {report.fields.downContent1}
               </div>
 
               <div className="unique-content artist-content">
-                {data.parts[0].fields.downContent2}
+                {report.fields.downContent2}
               </div>
 
               <div className="panel-container career-card-container">
                 <div className="career-panel-title font-35">
-                  {data.parts[0].fields.subTitle2}
+                  {report.fields.subTitle2}
                 </div>
-                {data.parts[0].fields.brillianceCards.cards.map(
-                  (item, index) => (
-                    <div className="panel type-panel career-panel">
-                      <div className="panel-circle career-circle">
-                        {index + 1}
-                      </div>
-                      <div className="panel-content career-content">
-                        <div className="type-panel-title color-pink">
-                          {item.title}
-                        </div>
-                        {item.content}
-                      </div>
+                {report.fields.brillianceCards.cards.map((item, index) => (
+                  <div className="panel type-panel career-panel">
+                    <div className="panel-circle career-circle">
+                      {index + 1}
                     </div>
-                  )
-                )}
+                    <div className="panel-content career-content">
+                      <div className="type-panel-title color-pink">
+                        {item.title}
+                      </div>
+                      {item.content}
+                    </div>
+                  </div>
+                ))}
               </div>
 
               <div className="unique-content artist-content">
-                {data.parts[0].fields.downContent}
+                {report.fields.downContent}
               </div>
             </div>
-          }
+          ))}
         </div>
       )}
       <ScrollToTop smooth />

@@ -136,8 +136,13 @@
     display: none;
 }
 
+.integrated-native-title {
+    margin-bottom: 30px;
+    font-size: 50px;
+}
+
 .native-title {
-    display:none;
+    display: none;
 }
 
 .title-hidden img {
@@ -241,6 +246,10 @@
         top: 0;
         left: -25%;
         transform: translate(0%, -110%);
+    }
+
+    .integrated-native-title {
+        display: none;
     }
 
     .native-title {
