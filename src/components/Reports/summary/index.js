@@ -375,14 +375,14 @@ export default function Index() {
                 <span className="bold color-pink">
                   {data.cards[cardIdx].fields.cardContent5[0]}
                 </span>{" "}
-                {data.cards[cardIdx].fields.cardContent[1]}
+                {data.cards[cardIdx].fields.cardContent5[1]}
               </div>
 
               <div className="list-item bg-black">
                 <span className="bold color-pink">
-                  {data.cards[cardIdx].fields.cardContent[0]}
+                  {data.cards[cardIdx].fields.cardContent6[0]}
                 </span>{" "}
-                {data.cards[cardIdx].fields.cardContent[1]}
+                {data.cards[cardIdx].fields.cardContent6[1]}
               </div>
             </div>
           </div>
