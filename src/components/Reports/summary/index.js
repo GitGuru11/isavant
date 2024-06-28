@@ -12,6 +12,7 @@ export default function Index() {
   const [api, contextHolder] = notification.useNotification();
 
   const [lock, setLock] = useState(true);
+  const [flag, setFlag] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
   const [cardIdx, setCardIdx] = useState(0);
   const [data, setData] = useState({});
@@ -114,12 +115,24 @@ export default function Index() {
           onClick={() => locker()}
         ></img>
       </div>
-      <Footer flag={0} />
+      <Footer flag={flag} />
       {Object.keys(data).length && (
         <div className="report-container">
           <div className="report-btn-group">
-            <button className="monster-btn">Stress Monster</button>
-            <button className="brilliance-btn">Native Brilliance</button>
+            <button
+              style={{ backgroundColor: flag ? "darkgray" : "#ff8080" }}
+              className="brilliance-btn"
+              onClick={() => (window.location.href = "/monster")}
+            >
+              Stress Monster
+            </button>
+            <button
+              style={{ backgroundColor: flag ? "#ff8080" : "darkgray" }}
+              className="monster-btn"
+              onClick={() => (window.location.href = "/brilliance")}
+            >
+              Native Brilliance
+            </button>
           </div>
 
           <div className="escape-container">

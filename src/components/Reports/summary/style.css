@@ -12,25 +12,31 @@
 }
 
 .monster-btn {
-    background-color: #F277C636;
+  background-color: #ff8080;
+    
     border-style: none;
-    border:solid 1px #F277C6;
     border-radius: 82px;
     padding: 10px 20px;
     cursor: pointer;
     font-weight: 600;
     font-size: 20px;
+    transition: all 0.3s;
 }
 
 .brilliance-btn {
-    background-color: #F6F6F6;
+  background-color: darkgray;
+    
     border-style: none;
-    border: solid 1px #B4B4B4;
     border-radius: 82px;
     padding: 10px 20px;
     cursor: pointer;
     font-weight: 600;
     font-size: 20px;
+    transition: all 0.3s;
+}
+
+.monster-btn:hover,.brilliance-btn:hover {
+  background-color: #ff8080 !important;
 }
 
 /* Escape Artist */
