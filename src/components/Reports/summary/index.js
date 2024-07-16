@@ -8,7 +8,6 @@ import Unlock from "../../../resources/imgs/unlock.png";
 import Footer from "../footer";
 import "./style.css";
 
-var temp;
 export default function Index() {
   const [api, contextHolder] = notification.useNotification();
 
