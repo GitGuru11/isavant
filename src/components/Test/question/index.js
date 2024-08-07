@@ -188,7 +188,8 @@ export default function Index() {
                       backgroundColor: "#f9e09d",
                     }}
                   >
-                    {JSON.parse(localStorage.getItem("userInfo")).firstName}
+                    {localStorage.getItem("userInfo") &&
+                      JSON.parse(localStorage.getItem("userInfo")).firstName}
                   </div>
                 </Draggable>
                 <div className="parent-selection">
@@ -205,10 +206,9 @@ export default function Index() {
                       backgroundColor: "#f9e09d",
                     }}
                   >
-                    {
+                    {localStorage.getItem("userInfo") &&
                       JSON.parse(localStorage.getItem("userInfo"))
-                        .studentFirstName
-                    }
+                        .studentFirstName}
                   </div>
                 </Draggable>
                 <div className="child-selection">
@@ -243,7 +243,8 @@ export default function Index() {
                         backgroundColor: "#f9e09d",
                       }}
                     >
-                      {JSON.parse(localStorage.getItem("userInfo")).firstName}
+                      {localStorage.getItem("userInfo") &&
+                        JSON.parse(localStorage.getItem("userInfo")).firstName}
                     </div>
                   </Draggable>
                   <div className="parent-selection">
@@ -260,10 +261,9 @@ export default function Index() {
                         backgroundColor: "#f9e09d",
                       }}
                     >
-                      {
+                      {localStorage.getItem("userInfo") &&
                         JSON.parse(localStorage.getItem("userInfo"))
-                          .studentFirstName
-                      }
+                          .studentFirstName}
                     </div>
                   </Draggable>
                   <div className="child-selection">
