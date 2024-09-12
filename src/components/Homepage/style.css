@@ -1,0 +1,40 @@
+.Homepage {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.homepage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.assessment-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 164px;
+    height: 58px;
+    background-color: #11111F;
+    border-radius: 50px;
+    cursor: pointer;
+    color: white;
+    font-family: "Montserrat";
+}
+
+.home-title {
+    width: 700px;
+    color: #11111F;
+    font-family: "Outfit";
+    font-size: 90px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.pink-sign {
+    background-color: #F8C9E7;
+    margin: auto;
+    margin-top: 50px;
+    width: 355px;
+    height: 38px;
+}

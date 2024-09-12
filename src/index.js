@@ -8,6 +8,7 @@ import Final from "./components/Test/final";
 import Report from "./components/Reports/summary";
 import Brilliance from "./components/Reports/brilliance";
 import Info from "./components/Test/info";
+import Homepage from "./components/Homepage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { GlobalProvider } from "./components/Context/GlobalContext";
 import "./index.css";
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/info",
     element: <Info />,
+  },
+  {
+    path: "/homepage",
+    element: <Homepage />,
   },
 ]);
 
