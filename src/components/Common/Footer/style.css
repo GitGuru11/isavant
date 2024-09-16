@@ -1,0 +1,152 @@
+.home-footer-container {
+    background-color: #0A0A13;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    color: white;
+    padding: 0px 100px;
+}
+
+.home-footer-top {
+    padding: 5vw 0px;
+    border-bottom: dotted;
+    border-color: gray;
+    border-width: 1px;
+    width: 100%;
+}
+
+.home-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 5vw 0px;
+    text-align: start;
+}
+
+.home-footer-head {
+    font-size: 20px;
+}
+
+.home-footer-title {
+    font-size: 7vw;
+    margin: 50px 0px;
+}
+
+.home-footer-assessment-btn {
+    width: fit-content;
+    background-color: #F277C6;
+    padding: 30px 50px;
+    margin: auto;
+    border-radius: 45px;
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.home-footer-wrap {
+    
+}
+
+.home-footer-native-container {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.home-footer-wrap img {
+    margin-bottom: 2.5vw;
+}
+
+.home-footer-logo {
+    font-size: 72px;
+}
+
+.home-footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 350px;
+}
+
+.home-footer-about-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-footer-about,
+.home-footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.home-about,
+.home-contact {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.home-social-container {
+    display: flex;
+    gap: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .home-footer-container {
+        width: 100%;
+    }
+
+    .home-footer-bottom {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .home-footer-logo {
+        font-size: 7vw;
+    }
+
+    .home-footer-native-container {
+        height: fit-content;
+        gap: 50px;
+    }
+
+    .home-footer-right {
+        gap: 30px;
+    }
+
+    .home-footer-assessment-btn {
+        width: fit-content;
+        background-color: #F277C6;
+        padding: 2vw 3vw;
+        margin: auto;
+        border-radius: 45px;
+        font-family: "Montserrat";
+        font-weight: bold;
+        font-size: 2vw;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .home-footer-wrap img {
+        width: 200px;
+    }
+
+    .home-footer-container {
+        padding: 0px 50px;
+    }
+
+    .home-footer-about-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .home-footer-copyright {
+        font-size: 10px;
+    }
+
+    .home-footer-right {
+        width: 100%;
+    }
+}

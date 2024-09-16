@@ -179,8 +179,9 @@
 .home-brain-container {
     width: 65%;
     height: 35vw;
-    background-image: url("../../resources/imgs/home/back.png");
+    background-image: url("../../resources/imgs/home/back2.PNG");
     background-size: 100% 100%;
+    border-radius: 35px;
     margin: 7vw auto;
     font-family: "Archivo";
     color: white;
@@ -332,6 +333,15 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .video1 {
+        width: 100%;
+        margin-top: -15%;
+    }
+
+    .home-video2 {
+        width: 100%;
+    }
+
     .home-stress-container {
         flex-direction: column;
         gap: 30px;
@@ -376,11 +386,16 @@
     .home-after-assessment {
         flex-direction: column;
         align-items: center;
-        gap: 30px;
+        gap: 20px;
     }
 
-    .home-left,.home-right {
+    .home-left,
+    .home-right {
         width: 90%;
+    }
+
+    .home-order {
+        margin-top: 30px;
     }
     
     .home-left-title {
@@ -434,6 +449,16 @@
     }
 
     .home-brain-container {
-        height: 45vw;
+        height: 60vw;
+    }
+
+    .home-brain-container {
+        border-radius: 20px;
+    }
+
+    .home-liber-item {
+        width: 90%;
+        align-items: center;
+        gap: 20px;
     }
 }

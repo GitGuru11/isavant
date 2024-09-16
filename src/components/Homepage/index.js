@@ -3,6 +3,9 @@ import "@fontsource/outfit/300.css";
 import "@fontsource/archivo";
 import "./style.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+//import footer component
+import Footer from "../Common/Footer/HomeFooter";
+
 import logo from "../../resources/imgs/home/logo.png";
 import Video1 from "../../resources/imgs/home/video1.svg";
 import Video2 from "../../resources/imgs/home/video2.svg";
@@ -406,6 +409,8 @@ export default function Homepage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
