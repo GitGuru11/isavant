@@ -1,0 +1,55 @@
+.home-card-container {
+    background-color: white;
+    width: 395px;
+    height: 530px;
+    border-radius: 32px;
+    padding: 7px;
+    margin-left: 20px;
+}
+
+.home-card-img {
+    width: 100%;
+    height: 45%;
+    background-image: url("../../../resources/imgs/home/persuader.png");
+    background-size: 100% 100%;
+    margin: auto;
+    padding-top: 4%;
+    padding-left: 3%;
+}
+
+.home-card-img-title {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.5% 4.5%;
+    border-radius: 55px;
+    width: fit-content;
+    color: white;
+    text-transform: uppercase;
+    font-family: "Outfit";
+    font-size: 90%;
+}
+
+.home-card-subtitle {
+    font-family: "Outfit";
+    font-size: 200%;
+    font-weight: bolder;
+    width: fit-content;
+    margin: 4% 0px;
+}
+
+.home-card-content-container {
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+    margin-top: 5%;
+    gap: 3%;
+}
+
+.home-card-content-container .home-card-content {
+    color: #464646;
+    font-family: "Montserrat";
+    font-size: 90%;
+    text-align: start;
+    width: 85%;
+}

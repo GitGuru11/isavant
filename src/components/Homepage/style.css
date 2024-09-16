@@ -1,6 +1,8 @@
 .Homepage {
+    background-color: #EAF2F5;
     padding-top: 30px;
     text-align: center;
+    font-family: "Outfit";
 }
 
 .homepage-header {
@@ -13,8 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 164px;
-    height: 58px;
+    padding: 17px 20px;
     background-color: #11111F;
     border-radius: 50px;
     cursor: pointer;
@@ -26,7 +27,7 @@
     width: 700px;
     color: #11111F;
     font-family: "Outfit";
-    font-size: 90px;
+    font-size: clamp(20px, 5vw, 100px);
     margin: auto;
     margin-top: 100px;
 }
@@ -35,6 +36,404 @@
     background-color: #F8C9E7;
     margin: auto;
     margin-top: 50px;
-    width: 355px;
+    width: 18vw;
     height: 38px;
+}
+
+.video1{
+    width: 70%;
+    margin-top: -15%;
+}
+
+.home-quiz {
+    font-size: clamp(15px, 3vw, 100px);
+    font-family: "Outfit";
+    width: 75%;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+.home-card{
+    margin-bottom: 100px;
+}
+
+.home-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.home-card-title {
+    font-family: "Outfit";
+    font-size: 4vw;
+    color: #11111F;
+}
+
+.home-icon-group {
+    display: flex;
+    justify-content: space-between;
+    width: 90px;
+}
+
+.arrow-wrap {
+    padding: 10px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.home-stress-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-stress-title {
+    width: 40%;
+    font-family: "Outfit";
+    font-size: 4vw;
+    text-align: start;
+}
+
+.home-stress-content-container {
+    width: 50%;
+}
+
+.home-stress-content {
+    font-family: "Montserrat";
+    font-size: 14px;
+    line-height: 20px;
+    text-align: start;
+}
+
+.home-stress-btn {
+    width: 35%;
+    margin-top: 5%;
+}
+
+.home-video2 {
+    width: 80%;
+}
+
+.swipe-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.swipe-container .home-frame-content {
+    font-size: 5.5vw;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.home-after-assessment {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.home-left {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    gap: 25px;
+}
+
+.home-right {
+    width: 45%;
+    text-align: start;
+}
+
+.home-left-title {
+    font-size: 4.3vw;
+}
+
+.home-order {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.home-number {
+    color: #F277C6;
+    font-size: 13.5vw;
+    font-weight: 900;
+}
+
+.home-order-title {
+    font-size: 3.5vw;
+}
+
+.home-left-content {
+    font-family: "Montserrat";
+    font-size: 14px;
+}
+
+.home-after-btn {
+    width: 50%;
+}
+
+.home-brain-container {
+    width: 65%;
+    height: 35vw;
+    background-image: url("../../resources/imgs/home/back.png");
+    background-size: 100% 100%;
+    margin: 7vw auto;
+    font-family: "Archivo";
+    color: white;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.home-brain-title {
+    font-size: 4vw;
+}
+
+.home-brain-content1,
+.home-brain-content2 {
+    margin: 0px 150px;
+    font-size: 1.3vw;
+}
+
+.home-brain-btn {
+    width: 30%;
+    padding: 2vw;
+    margin: 0px auto;
+    font-size: 1.2vw !important;
+}
+
+.home-card-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.home-symptom-title {
+    font-size: clamp(30px, 4vw, 100px);
+    margin-bottom: 50px;
+}
+
+.home-symptom-container {
+    display: flex;
+    gap: 5%;
+}
+
+.home-symptom-card-container1 {
+    width: 60%;
+    height: fit-content;
+    background-color: white;
+    padding: 20px;
+    border-radius: 32px;
+}
+
+.home-symptom-card-container2 {
+    width: 35%;
+    height: fit-content;
+    background-color: white;
+    padding: 20px;
+    border-radius: 32px;
+}
+
+.home-symptom-card-container1 img,.home-symptom-card-container2 img {
+    width: 100%;
+}
+
+.home-symptom-card-title {
+    margin: 10px 0px;
+    text-align: start;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.home-symptom-card-content {
+    font-family: "Montserrat";
+    font-size: 16px;
+    color: #11111F;
+    text-align: start;
+    line-height: 25px;
+}
+
+.home-liberate-container {
+    background-image: url("../../resources/imgs/home/back2.PNG");
+    background-size: 100% auto;
+    width: fit-content;
+    border-radius: 40px;
+    padding: 50px 30px;
+    margin: 150px auto;
+    color: white;
+}
+
+.home-liberate-title {
+    font-size: 3.5vw;
+    margin: 50px 0px;
+}
+
+.home-liber-item-container {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.home-liber-item-container img {
+    width: 40%;
+    height: auto;
+}
+
+.home-liber-item {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    text-align: start;
+    gap: 20px;
+}
+
+.home-liber-num {
+    font-size: clamp(100px, 9vw, 10vw);
+    font-weight: 900;
+}
+
+.home-liber-item-title {
+    font-size: clamp(30px, 2vw, 100px);
+}
+
+.home-liber-item-content {
+    font-size: clamp(15px, 0.8vw, 100px);
+}
+
+.home-liber-group {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .home-symptom-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .home-symptom-card-container1 {
+        width: 90%;
+    }
+
+    .home-symptom-card-container2 {
+        width: 90%;
+    }
+
+    .home-liberate-title {
+        font-size: 6vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .home-stress-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .home-stress-title {
+        width: 100%;
+        font-size: 6vw;
+        text-align: start;
+    }
+
+    .home-stress-content-container {
+        width: 100%;
+    }
+
+    .home-stress-content {
+        font-size: clamp(12px, 2vw,100px);
+        line-height: 20px;
+        text-align: start;
+    }
+
+    .home-title {
+        width: 100%;
+    }
+
+    .pink-sign {
+        background-color: #F8C9E7;
+        margin: auto;
+        margin-top: 20px;
+        height: 28px;
+    }
+
+    .homepage-header img {
+        width: 200px;
+    }
+
+    .assessment-btn {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+    .home-after-assessment {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .home-left,.home-right {
+        width: 90%;
+    }
+    
+    .home-left-title {
+        font-size: 7vw;
+    }
+
+    .home-number {
+        font-size: 17vw;
+    }
+
+    .home-order-title {
+        font-size: 5vw;
+    }
+
+    .home-order-description {
+        font-size: 3vw;
+    }
+
+    .home-brain-content1,
+    .home-brain-content2 {
+        margin: 0px 20px;
+        font-size: 2vw;
+    }
+
+    .home-liber-item-container {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .home-liber-item {
+        width: 60%;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .home-liber-item-container img {
+        min-width: 60%;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .homepage-header img {
+        width: 150px;
+    }
+
+    .assessment-btn {
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+
+    .home-brain-container {
+        height: 45vw;
+    }
 }
