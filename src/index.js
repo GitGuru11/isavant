@@ -9,6 +9,7 @@ import Report from "./components/Reports/summary";
 import Brilliance from "./components/Reports/brilliance";
 import Info from "./components/Test/info";
 import Homepage from "./components/Homepage";
+import Landing from "./components/Landing2";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { GlobalProvider } from "./components/Context/GlobalContext";
 import "./index.css";
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
   {
     path: "/homepage",
     element: <Homepage />,
+  },
+  {
+    path: "/landing",
+    element: <Landing />,
   },
 ]);
 

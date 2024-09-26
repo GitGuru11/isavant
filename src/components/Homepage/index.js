@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "@fontsource/outfit/300.css";
 import "@fontsource/archivo";
 import "./style.css";
@@ -113,6 +113,24 @@ export default function Homepage() {
     },
   ]);
 
+  const flickingRef = useRef(null);
+
+  const moveLeft = (idx) => {
+    const flicking = flickingRef.current;
+    let cnt = flicking.index + idx;
+    if (cnt !== -1) {
+      flicking.prev(); // Move to the previous frame
+    }
+  };
+
+  const moveRight = (idx) => {
+    const flicking = flickingRef.current;
+    let cnt = flicking.index + idx;
+    if (cnt !== 4) {
+      flicking.next(); // Move to the next frame
+    }
+  };
+
   return (
     <div className="Homepage">
       <div className="homepage-header container-80">
@@ -131,16 +149,16 @@ export default function Homepage() {
         <div className="home-card-header container-80">
           <div className="home-card-title">Native Brilliance Types</div>
           <div className="home-icon-group">
-            <div className="arrow-wrap">
+            <div onClick={() => moveLeft(-1)} className="arrow-wrap">
               <FaArrowLeft />
             </div>
-            <div className="arrow-wrap">
+            <div onClick={() => moveRight(1)} className="arrow-wrap">
               <FaArrowRight />
             </div>
           </div>
         </div>
 
-        <Flicking moveType="freeScroll" bound={true}>
+        <Flicking ref={flickingRef} moveType="freeScroll" bound={true}>
           {cardData.map((item) => (
             <div className="swipe-container">
               <Card cardData={item} />

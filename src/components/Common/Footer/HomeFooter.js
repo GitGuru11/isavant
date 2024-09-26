@@ -8,13 +8,13 @@ import Facebook from "../../../resources/imgs/home/facebook.svg";
 export default function Footer() {
   return (
     <div className="home-footer-container container">
-      <div className="home-footer-top">
+      {/* <div className="home-footer-top">
         <div className="home-footer-head">Native Brilliance Assessment</div>
         <div className="home-footer-title">Ready to go Native?</div>
         <div className="home-footer-assessment-btn">
           Take the Native Brilliance Assessment
         </div>
-      </div>
+      </div> */}
 
       <div className="home-footer-bottom">
         <div className="home-footer-native-container">
