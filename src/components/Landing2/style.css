@@ -221,6 +221,11 @@
     display: flex;
 }
 
+.toxic-img {
+    width: 300px;
+    margin: 20px 0px !important;
+}
+
 @media only screen and (max-width: 1440px) {
     .lan-feedback-wrap {
         flex-direction: column;
