@@ -1,0 +1,56 @@
+.assessment1-header {
+    margin-bottom: 5vw;
+    padding: 0px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.assessment1-header img {
+    width: 288px;
+    height: 33px;
+}
+
+.assessment1-btn {
+    width: 164px;
+    height: 58px;
+    background-color: #11111F;
+    border-radius: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .assessment1-header img {
+        width: 200px;
+        height: 28px;
+    }
+
+    .assessment1-btn {
+        width: 140px;
+        height: 45px;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .assessment1-header {
+        margin-top: 10px;
+    }
+    .assessment1-header img {
+        width: 130px;
+        height: 17px;
+    }
+
+    .assessment1-btn {
+        width: 90px;
+        height: 30px;
+        font-size: 9px;
+    }
+}

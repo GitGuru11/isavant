@@ -1,0 +1,39 @@
+.assessment-progress-container {
+    width: fit-content;
+}
+
+.assessment-progress {
+    background-color: white;
+    border-radius: 100px;
+    width: 180px;
+    height: 32px;
+}
+
+.assessment-progress-bar {
+    background-color: #F277C7;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    width: 20%;
+    height: 100%;
+}
+
+.progress-number {
+    font-family: "Outfit";
+    font-weight: 600;
+    font-size: 116px;
+    color: #F277C7;
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .assessment-progress {
+        background-color: white;
+        border-radius: 100px;
+        width: 130px;
+        height: 27px;
+    }
+
+    .progress-number {
+        font-size: 70px;
+    }
+}

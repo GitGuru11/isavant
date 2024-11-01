@@ -1,0 +1,81 @@
+.assessment1-container {
+    height: 100vh;
+    text-align: center;
+    font-family: "Montserrat";
+}
+
+.assessment1-wrap {
+    width: 760px;
+    margin: auto;
+    margin-top: 9vw;
+}
+
+.assessment1-title {
+    font-family: "Outfit";
+    font-size: 4.7vw;
+}
+
+.assessment1-content {
+    margin: auto;
+    margin-top: 1.6vw;
+    font-family: "Montserrat";
+    font-size: 20px;
+    line-height: 30px;
+    width: 90%;
+}
+
+.assessment1-start-btn {
+    width: fit-content;
+    margin: auto;
+    margin-top: 2.6vw;
+    padding: 30px 90px;
+    border-radius: 45px;
+    background-color: #F277c6;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+    .assessment1-start-btn {
+        padding: 20px 50px;
+    }
+
+    .assessment1-title {
+        font-size: 7vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .assessment1-wrap {
+        width: 100%;
+    }
+
+    .assessment1-content {
+        font-size: 2.5vw;
+    }
+
+    .assessment1-start-btn {
+        padding: 20px 30px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .assessment1-title {
+        margin-top: 75px;
+        font-size: 10vw;
+    }
+
+    .assessment1-content {
+        margin-top: 30px;
+        font-size: 3vw;
+    }
+
+    .assessment1-start-btn {
+        padding: 10px 20px;
+        margin-top: 40px;
+        font-size: 12px;
+    }
+}

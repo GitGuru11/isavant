@@ -1,0 +1,59 @@
+.assessment1-footer-container {
+    margin-top: 20vw;
+}
+
+.assessment1-footer {
+    height: 200px;
+}
+
+@media only screen and (max-width: 768px) {
+    .assessment1-footer-container {
+        margin-top: 35vw;
+    }
+
+    .assessment1-footer {
+        height: 100px;
+    }
+
+    .assessment1-footer-wrap img {
+        width: 35vw;
+    }
+
+    .assessment1-footer-copy,
+    .assessment1-footer-copyright {
+        font-size: 15px;
+    }
+
+    .assessment1-about,
+    .assessment1-contact {
+        font-size: 16px;
+    }
+
+    .assessment1-social-container img {
+        width: 30px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .assessment1-footer {
+        height: 80px;
+    }
+
+    .assessment1-footer-wrap img {
+        width: 30vw;
+    }
+
+    .assessment1-footer-copy,
+    .assessment1-footer-copyright {
+        font-size: 12px;
+    }
+
+    .assessment1-about,
+    .assessment1-contact {
+        font-size: 14px;
+    }
+
+    .assessment1-social-container img {
+        width: 30px;
+    }
+}

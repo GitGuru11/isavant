@@ -9,7 +9,9 @@ import Report from "./components/Reports/summary";
 import Brilliance from "./components/Reports/brilliance";
 import Info from "./components/Test/info";
 import Homepage from "./components/Homepage";
+import Assessment from "./components/Assessment";
 import Landing from "./components/Landing2";
+import Module1 from "./components/Assessment/module1";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { GlobalProvider } from "./components/Context/GlobalContext";
 import "./index.css";
@@ -62,6 +64,14 @@ const router = createBrowserRouter([
   {
     path: "/landing",
     element: <Landing />,
+  },
+  {
+    path: "/assessment",
+    element: <Assessment />,
+  },
+  {
+    path: "/module1",
+    element: <Module1 />,
   },
 ]);
 
