@@ -36,7 +36,7 @@ import "./style.css";
 var imgArr = [];
 var selectedWords = [];
 export default function Module() {
-  const [cnt, setCnt] = useState(18);
+  const [cnt, setCnt] = useState(0);
   const [cardData, setCardData] = useState([
     { img: Man1, name: "John" },
     { img: Woman1, name: "Stacy" },
