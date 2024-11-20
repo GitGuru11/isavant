@@ -4,6 +4,10 @@ import Footer from "./footer";
 import "./style.css";
 
 export default function index() {
+  const Navigate = () => {
+    window.location.href = "/cognitive-assessment";
+  };
+
   return (
     <div className="assessment1-container">
       <Header />
@@ -17,10 +21,7 @@ export default function index() {
           guest who caught your eye. Can you get their number? Put your
           cognitive skills to the test!
         </div>
-        <div
-          onClick={() => (Location.href = "/cognitive-assessment")}
-          className="assessment1-start-btn"
-        >
+        <div onClick={() => Navigate()} className="assessment1-start-btn">
           Get started
         </div>
       </div>
