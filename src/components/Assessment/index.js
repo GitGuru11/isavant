@@ -17,7 +17,12 @@ export default function index() {
           guest who caught your eye. Can you get their number? Put your
           cognitive skills to the test!
         </div>
-        <div className="assessment1-start-btn">Get started</div>
+        <div
+          onClick={() => (Location.href = "/cognitive-assessment")}
+          className="assessment1-start-btn"
+        >
+          Get started
+        </div>
       </div>
       <Footer />
     </div>

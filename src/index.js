@@ -70,7 +70,7 @@ const router = createBrowserRouter([
     element: <Assessment />,
   },
   {
-    path: "/module1",
+    path: "/cognitive-assessment",
     element: <Module1 />,
   },
 ]);

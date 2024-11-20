@@ -1,0 +1,30 @@
+.mancard-contaienr {
+    display: flex;
+    gap: 10px;
+}
+
+.mancard-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mancard-name {
+    font-family: "Outfit";
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.mancard-food {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.mancard-order {
+    font-size: 20px;
+}
+
+.mancard-food img {
+    width: 60px;
+}

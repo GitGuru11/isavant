@@ -62,6 +62,10 @@
     cursor: pointer;
 }
 
+.module1-dish:hover {
+    background: #F277C6;
+}
+
 .assessment-next-btn {
     width: fit-content;
     display: flex;
@@ -102,8 +106,6 @@
 }
 
 .module1-dish-bar {
-    display: flex;
-    justify-content: space-between;
     margin: 30px 0px;
     padding: 20px 10px;
     width: 100%;
@@ -116,6 +118,422 @@
 .module1-dish-bar img {
     width: 150px;
     height: 100px;
+}
+
+.module1-content3 {
+    display: flex;
+    align-items: center;
+    margin-top: 3vw;
+    font-family: "Outfit";
+    font-size: 25px;
+    gap: 20px;
+    font-weight: 500;
+}
+
+.module1-card {
+    margin-top: 3vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.module1-man-group {
+    background-color: white;
+    width: 350px;
+    padding:20px 0px;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    border: 1px solid #ff69b4;
+    border-radius: 30px;
+    box-shadow: 0px 0px 8px rgba(255, 105, 180, 0.3);
+}
+
+.module1-seat {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3vw;
+}
+
+.module1-man-group img{
+    width: 130px;
+    border-radius: 50%;
+}
+
+.module1-seat-group {
+    position: relative;
+    width: 60%;
+    height: 700px;
+    background-color: white;
+    border: 1px solid #ff69b4;
+    border-radius: 30px;
+    box-shadow: 0px 0px 8px rgba(255, 105, 180, 0.3);
+}
+
+.module1-circle {
+    position: absolute;
+    width: 7vw;
+    height: 7vw;
+    background-color: #4b1e00;
+    border-radius: 50%;
+}
+
+.module1-circle-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.module1-circle:nth-child(1) {
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.module1-circle:nth-child(2) {
+    top: 70%;
+    right: 15%;
+    transform: translateY(-50%);
+}
+
+.module1-circle:nth-child(3) {
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.module1-circle:nth-child(4) {
+    top: 30%;
+    left: 15%;
+    transform: translateY(-50%);
+}
+
+.module1-circle:nth-child(5) {
+    top: 30%;
+    right: 15%;
+    transform: translateY(-50%);
+}
+
+.module1-circle:nth-child(6) {
+    bottom: 30%;
+    left: 15%;
+    transform: translateY(50%);
+}
+
+.restaurant-img-container {
+    width: fit-content;
+    margin: auto;
+}
+
+.restaurant-img-container img {
+    width: 100%;
+}
+
+.restaurant-map-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 1vw;
+    color: #F277C6;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.table-map-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1vw;
+    color: #F277C6;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.module4-dish {
+    background-color: white;
+}
+
+.module4-dish1,
+.module4-dish2,
+.module4-dish3,
+.module4-dish4 {
+    background-color: white;
+    width: 140px;
+    height: 80px;
+}
+
+.module4-dish1 {
+    background-color: #51A669;
+}
+
+.module4-dish3 {
+    background-color: #DDC264;
+}
+
+.module1-woman-img {
+    width: 400px;
+}
+
+.module6-dish {
+    background-color: white;
+    width: 250px;
+    text-align: center;
+}
+
+.module6-dish img {
+    width: 100px;
+    height: 50px;
+}
+
+.dish-container {
+    padding: 20px 0px;
+}
+
+.module7-item {
+    margin: 60px 0px;
+    text-align: center;
+}
+
+.module7-dish1,
+.module7-dish2 {
+    width: 250px;
+    text-align: center;
+    color: white;
+}
+
+.module7-dish1 {
+    background-color: #1F3EDE;
+}
+
+.module7-dish2 {
+    background-color: #835614;
+}
+
+.assessment-group-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10vw;
+}
+
+.module8-next-btn {
+    margin: 0px;
+}
+
+.assessment-pre-btn {
+    width: fit-content;
+    border-radius: 45px;
+    margin-top: 0px;
+    padding: 15px 42px;
+    border:1px solid #F277C6;
+    cursor: pointer;
+}
+
+.module8-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+    margin: 5vw 0px;
+}
+
+.module8-word-group {
+    width: 300px;
+    display: flex;
+    gap: 100px;
+}
+
+.module8-word-left {
+    display: flex;
+    gap: 50px;
+}
+
+.module8-word-left img {
+    height: 250px;
+    margin: auto 0px;
+}
+
+.module8-word-wrap1,
+.module8-word-wrap2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Outfit";
+    font-size: 20px;
+}
+
+.module8-select-wrap {
+    width: 600px;
+    height: 500px;
+    padding: 20px;
+    border: 1px solid #ff69b4;
+    border-radius: 32px;
+    box-shadow: 0px 0px 8px rgba(255, 105, 180, 0.3);
+}
+
+.module8-word-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+}
+
+.module8-word-input div {
+    height: fit-content;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.drag-words {
+    cursor: pointer;
+}
+
+.module8-input-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.module8-input-name {
+    width: 400px;
+    height: 50px;
+    margin-top: 0.5vw;
+    border: 1px solid #ff69b4;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-size: 25px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.module9-tea-title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: "Outfit";
+    font-size: 25px;
+}
+
+.module9-tea-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.tea-img {
+    height: fit-content;
+    padding: 15px;
+    border: 3px solid transparent;
+}
+
+.tea2 {
+    margin-top: 100px;
+}
+
+.input-number {
+    display: block;
+    width: fit-content;
+    margin: auto;
+    margin-top: 100px;
+    padding: 30px;
+    font-family: "Outfit";
+    font-size:3vw;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid #ff69b4;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgba(255, 105, 180, 0.3);
+}
+
+.real-input {
+    text-align: center;
+    color: #F277C6;
+}
+
+.pre-question {
+    width: 100%;
+}
+
+.pre-question-title {
+    font-family: "Outfit";
+    font-size: 15px;
+    color: gray;
+}
+
+.pre-question-content {
+    margin-top: 20px;
+    font-family: "Outfit";
+    font-size: 18px;
+    color: #464646;
+}
+
+.final-content {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    font-family: "Outfit";
+    font-size: 5vw;
+}
+
+.report-text {
+    margin-top: 30px;
+    text-align: center;
+    font-family: "Outfit";
+    font-size: 28px;
+    color: #11111F;
+}
+
+.module11-card-container {
+    padding: 10px;
+    border: 3px solid transparent;
+    cursor: pointer;
+}
+
+.module11-title {
+    font-weight: bold;
+    margin-top: 5vw !important;
+}
+
+.module11-food-wrap:hover {
+    background: linear-gradient(to right, #F277C7, #97206d);
+}
+
+.module11-food-item {
+    margin-top: 1.5vw;
+    text-align: center;
+    font-family: "Outfit";
+    font-size: 25px;
+}
+
+.module11-btn {
+    float: right;
+}
+
+@media only screen and (max-width: 1024px) {
+    .module1-seat {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .module1-man-group {
+        width: 100%;
+    }
+
+    .module1-seat-group {
+        width: 100%;
+    }
+
+    .module1-circle {
+        width: 10vw;
+        height: 10vw;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -138,6 +556,13 @@
     .module1-content2 {
         margin-top: 2vw;
         font-size: 20px;
+    }
+
+    .img-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5vw;
     }
 
     .module1-man-img {
@@ -170,6 +595,67 @@
         color: white;
         cursor: pointer;
     }
+
+    .assessment-pre-btn {
+        margin-top: 7vw;
+        padding: 10px 35px;
+    }
+
+    .module1-seat-group {
+        width: 100%;
+        height: 60vw;
+    }
+
+    .module1-man-group img{
+        width: 15vw;
+    }
+
+    .man-img {
+        width: 28vw;
+    }
+
+    .module4-dish1,
+    .module4-dish2,
+    .module4-dish3,
+    .module4-dish4 {
+        width: 110px;
+        height: 60px;
+    }
+
+    .module8-word-left {
+        flex-direction: column;
+    }
+
+    .module8-word-left img{
+        width: 200px;
+        margin: auto;
+    }
+
+    .module8-word-wrap1,
+    .module8-word-wrap2 {
+        gap: 20px;
+    }
+
+    .final-content {
+        width: 80%;
+        margin: auto;
+        margin-top: 30px;
+        text-align: center;
+        font-family: "Outfit";
+        font-size: 40px;
+    }
+
+    .report-text {
+        font-size: 20px;
+    }
+
+    .word-drop {
+        width: 100%;
+    }
+
+    .module8-select-wrap {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 425px) {
@@ -177,5 +663,60 @@
         display: flex;
         flex-direction: column;
         gap: 5vw;
+    }
+
+    .module1-dishes3 div {
+        width: 80%;
+        height: 70px;
+        font-size: 15px;
+    }
+
+    .module1-dish-bar {
+        margin: 30px 0px;
+        padding: 10px 5px;
+    }
+
+    .module1-dish-bar img {
+        width: 120px;
+        height: 80px;
+    }
+
+    .mancard-contaienr {
+        flex-direction: column;
+    }
+
+    .mancard-food img {
+        width: 30px;
+    }
+
+    .man-img {
+        width: 150px;
+    }
+
+    .module1-man-group img {
+        width: 100px;
+    }
+
+    .module1-circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .module8-input-name {
+        width: 90%;
+    }
+
+    .final-content {
+        font-size: 30px;
+    }
+
+    .report-text {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .final-content {
+        font-size: 20px;
     }
 }
