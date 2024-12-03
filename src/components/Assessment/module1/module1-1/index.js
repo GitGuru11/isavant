@@ -36,7 +36,7 @@ import "./style.css";
 var imgArr = [];
 var selectedWords = [];
 export default function Module() {
-  const [cnt, setCnt] = useState(2);
+  const [cnt, setCnt] = useState(0);
   const [cardData, setCardData] = useState([
     { img: Man1, name: "John" },
     { img: Woman1, name: "Stacy" },
@@ -87,6 +87,7 @@ export default function Module() {
   const [activeNum, setActiveNum] = useState(0);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [name, setName] = useState("");
+  const [word, setWord] = useState("Gray");
   const [groupNumber, setGroupNumber] = useState([]);
 
   const Choose = (cnt) => {
@@ -1235,11 +1236,15 @@ export default function Module() {
                 provided.
               </div>
 
-              <div className="module1-title module7-item">Blue</div>
+              <div className="module1-title module7-item">{word}</div>
               <div className="module1-categories"></div>
               <div className="module1-dishes module1-dishes2">
-                <div className="module1-dish module7-dish1">Gray</div>
-                <div className="module1-dish module7-dish2">Blue</div>
+                <div onClick={() => setWord("Gray")} className="module7-dish1">
+                  Gray
+                </div>
+                <div onClick={() => setWord("Blue")} className="module7-dish2">
+                  Blue
+                </div>
               </div>
             </div>
           </div>
