@@ -118,6 +118,7 @@
 .module1-dish-bar img {
     width: 150px;
     height: 100px;
+    border-radius: 50%;
 }
 
 .module1-content3 {
@@ -491,9 +492,27 @@ input:focus {
 }
 
 .module11-card-container {
+    position: relative;
     padding: 10px;
     border: 3px solid transparent;
     cursor: pointer;
+}
+
+.module11-card-number {
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 70%;
+    transform: translate(-70%, -50%);
+    background-color: #F277C7;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Outfit";
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .module11-title {
@@ -516,6 +535,13 @@ input:focus {
     float: right;
 }
 
+.module1-dish-bar1 {
+    text-align: center;
+}
+
+.module1-man-img {
+    width: 500px !important;
+}
 @media only screen and (max-width: 1024px) {
     .module1-seat {
         flex-direction: column;
@@ -533,6 +559,13 @@ input:focus {
     .module1-circle {
         width: 10vw;
         height: 10vw;
+    }
+
+    .img-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5vw;
     }
 }
 
@@ -565,9 +598,9 @@ input:focus {
         gap: 5vw;
     }
 
-    .module1-man-img {
+    .img-container img {
         margin-top: 5vw;
-        width: 50vw;
+        width: 50vw !important;
     }
 
     .module1-categories {

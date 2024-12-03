@@ -15,7 +15,7 @@ import Woman1 from "../../../../resources/imgs/assessment/woman1.svg";
 import Woman2 from "../../../../resources/imgs/assessment/woman2.svg";
 import Woman3 from "../../../../resources/imgs/assessment/woman3.svg";
 import Order from "../../../../resources/imgs/assessment/order.svg";
-import Dish1 from "../../../../resources/imgs/assessment/dishes/dish1.svg";
+import Dish1 from "../../../../resources/imgs/assessment/dishes/dish1.png";
 import Dish2 from "../../../../resources/imgs/assessment/dishes/dish2.svg";
 import Dish3 from "../../../../resources/imgs/assessment/dishes/dish3.svg";
 import Dish4 from "../../../../resources/imgs/assessment/dishes/dish4.svg";
@@ -36,7 +36,7 @@ import "./style.css";
 var imgArr = [];
 var selectedWords = [];
 export default function Module() {
-  const [cnt, setCnt] = useState(0);
+  const [cnt, setCnt] = useState(2);
   const [cardData, setCardData] = useState([
     { img: Man1, name: "John" },
     { img: Woman1, name: "Stacy" },
@@ -45,6 +45,17 @@ export default function Module() {
     { img: Woman2, name: "Mary" },
     { img: Woman3, name: "Rachel" },
   ]);
+
+  const [emotionalData, setEmotionalData] = useState([
+    { dish: Dish1, emotional: Man, type: 0 },
+    { dish: Dish2, emotional: Man1, type: 0 },
+    { dish: Dish3, emotional: Man2, type: 0 },
+    { dish: Dish4, emotional: Man1, type: 0 },
+    { dish: Dish5, emotional: Man2, type: 0 },
+    { dish: Dish6, emotional: Man1, type: 0 },
+  ]);
+
+  const [emotionalIdx, setEmotionalIdx] = useState(2);
 
   const [imgIndex, setImageIndex] = useState([]);
 
@@ -75,11 +86,19 @@ export default function Module() {
   const [flag, setFlag] = useState(0);
   const [activeNum, setActiveNum] = useState(0);
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [name, setName] = useState("");
+  const [groupNumber, setGroupNumber] = useState([]);
 
   const Choose = (cnt) => {
     let arr = new Array();
     arr[cnt] = 1;
     setRes(arr);
+  };
+
+  const SelectDish = (idx) => {
+    let tempArr = [...emotionalData];
+    tempArr[emotionalIdx].type = idx;
+    setEmotionalData(tempArr);
   };
 
   const handleDrop = (val, idx) => {
@@ -119,6 +138,15 @@ export default function Module() {
     arr.push(selectedWords[idx]);
     selectedWords.splice(idx, 1);
     setWords(arr);
+  };
+
+  const selectGroupNumber = (idx) => {
+    if (groupNumber.length == 2) {
+      return;
+    }
+    let tempNum = [...groupNumber];
+    tempNum.push(idx);
+    setGroupNumber(tempNum);
   };
 
   let Content = <></>;
@@ -260,42 +288,91 @@ export default function Module() {
               </div>
 
               <div className="module1-dish-bar">
-                <Flicking moveType="freeScroll" bound={true}>
-                  <div className="module1-dish-bar1">
-                    <img src={Dish1} />
-                    <img src={Dish2} />
-                    <img src={Dish3} />
-                    <img src={Dish4} />
-                    <img src={Dish5} />
-                    <img src={Dish6} />
-                  </div>
-                </Flicking>
+                <div className="module1-dish-bar1">
+                  {/* {emotionalData.map((data, idx) => (
+                      <img
+                        src={data.dish}
+                        style={{ backgroundColor: "#ff69b4" }}
+                      />
+                    ))} */}
+                  <img
+                    src={Dish1}
+                    style={{
+                      backgroundColor: emotionalIdx == 0 ? "#ff69b4" : "",
+                    }}
+                    onClick={() => setEmotionalIdx(0)}
+                  />
+                  <img
+                    src={Dish2}
+                    style={{
+                      backgroundColor: emotionalIdx == 1 ? "#ff69b4" : "",
+                    }}
+                    onClick={() => setEmotionalIdx(1)}
+                  />
+                  <img
+                    src={Dish3}
+                    style={{
+                      backgroundColor: emotionalIdx == 2 ? "#ff69b4" : "",
+                    }}
+                    onClick={() => setEmotionalIdx(2)}
+                  />
+                  <img
+                    src={Dish4}
+                    style={{
+                      backgroundColor: emotionalIdx == 3 ? "#ff69b4" : "",
+                    }}
+                    onClick={() => setEmotionalIdx(3)}
+                  />
+                  <img
+                    src={Dish5}
+                    style={{
+                      backgroundColor: emotionalIdx == 4 ? "#ff69b4" : "",
+                    }}
+                    onClick={() => setEmotionalIdx(4)}
+                  />
+                  <img
+                    src={Dish6}
+                    style={{
+                      backgroundColor: emotionalIdx == 5 ? "#ff69b4" : "",
+                    }}
+                    onClick={() => setEmotionalIdx(5)}
+                  />
+                </div>
               </div>
 
               <div className="img-container">
                 <img
                   className="module1-content2 module1-man-img"
-                  src={Man}
+                  src={emotionalData[emotionalIdx].emotional}
                 ></img>
                 <div className="module1-dishes module1-dishes3">
                   <div
                     className="module1-dish"
-                    onClick={() => Choose(4)}
-                    style={{ background: res[4] ? "#F277C6" : "" }}
+                    onClick={() => SelectDish(1)}
+                    style={{
+                      background:
+                        emotionalData[emotionalIdx].type == 1 ? "#F277C6" : "",
+                    }}
                   >
                     Favorite Dish
                   </div>
                   <div
                     className="module1-dish"
-                    onClick={() => Choose(5)}
-                    style={{ background: res[5] ? "#F277C6" : "" }}
+                    onClick={() => SelectDish(2)}
+                    style={{
+                      background:
+                        emotionalData[emotionalIdx].type == 2 ? "#F277C6" : "",
+                    }}
                   >
                     2nd Favorite Dish
                   </div>
                   <div
                     className="module1-dish"
-                    onClick={() => Choose(6)}
-                    style={{ background: res[6] ? "#F277C6" : "" }}
+                    onClick={() => SelectDish(3)}
+                    style={{
+                      background:
+                        emotionalData[emotionalIdx].type == 3 ? "#F277C6" : "",
+                    }}
                   >
                     Detested dish
                   </div>
@@ -304,7 +381,7 @@ export default function Module() {
             </div>
           </div>
         </div>
-        {res.length !== 0 && (
+        {emotionalData.every((item) => item.type > 0) && (
           <div
             className="assessment-next-btn"
             onClick={() => {
@@ -1301,9 +1378,12 @@ export default function Module() {
         </div>
 
         <div className="module8-input-title">Name that theme.</div>
-        <input className="module8-input-name"></input>
+        <input
+          className="module8-input-name"
+          onChange={(v) => setName(v.target.value)}
+        ></input>
 
-        {selectedWords.length !== 0 && (
+        {selectedWords.length !== 0 && name !== "" && (
           <div className="assessment-next-btn" onClick={() => setCnt(cnt + 1)}>
             Next{" "}
             <div
@@ -1663,19 +1743,33 @@ export default function Module() {
         <div className="module1-card">
           {cardData.map((item, idx) => (
             <div
-              onClick={() => setActiveNum(idx + 1)}
+              onClick={() => selectGroupNumber(idx)}
               className="module11-card-container"
-              style={{ borderColor: activeNum === idx + 1 ? "#F277C7" : "" }}
+              style={{
+                borderColor: groupNumber.indexOf(idx) + 1 ? "#F277C7" : "",
+              }}
             >
               <ManCard img={item.img} name={item.name} />
+              <div
+                className="module11-card-number"
+                style={{
+                  visibility:
+                    groupNumber.indexOf(idx) + 1 ? "visible" : "hidden",
+                }}
+              >
+                {groupNumber.indexOf(idx) + 1}
+              </div>
             </div>
           ))}
         </div>
 
-        {activeNum !== 0 && (
+        {groupNumber.length === 2 && (
           <div
             className="assessment-next-btn module11-btn"
-            onClick={() => setCnt(cnt + 1)}
+            onClick={() => {
+              setGroupNumber([]);
+              setCnt(cnt + 1);
+            }}
           >
             Next{" "}
             <div
@@ -1725,8 +1819,10 @@ export default function Module() {
           <div>
             <div
               className="module1-dish module6-dish dish-container module11-food-wrap"
-              onClick={() => Choose(25)}
-              style={{ background: res[25] ? "#F277C6" : "" }}
+              onClick={() => selectGroupNumber(0)}
+              style={{
+                background: groupNumber.indexOf(0) + 1 ? "#F277C6" : "",
+              }}
             >
               <img src={Dish1} />
             </div>
@@ -1736,8 +1832,10 @@ export default function Module() {
           <div>
             <div
               className="module1-dish module6-dish dish-container module11-food-wrap"
-              onClick={() => Choose(26)}
-              style={{ background: res[26] ? "#F277C6" : "" }}
+              onClick={() => selectGroupNumber(1)}
+              style={{
+                background: groupNumber.indexOf(1) + 1 ? "#F277C6" : "",
+              }}
             >
               <img src={Dish2} />
             </div>
@@ -1747,8 +1845,10 @@ export default function Module() {
           <div>
             <div
               className="module1-dish module6-dish dish-container module11-food-wrap"
-              onClick={() => Choose(27)}
-              style={{ background: res[27] ? "#F277C6" : "" }}
+              onClick={() => selectGroupNumber(2)}
+              style={{
+                background: groupNumber.indexOf(2) + 1 ? "#F277C6" : "",
+              }}
             >
               <img src={Dish3} />
             </div>
@@ -1758,8 +1858,10 @@ export default function Module() {
           <div>
             <div
               className="module1-dish module6-dish dish-container module11-food-wrap"
-              onClick={() => Choose(28)}
-              style={{ background: res[28] ? "#F277C6" : "" }}
+              onClick={() => selectGroupNumber(3)}
+              style={{
+                background: groupNumber.indexOf(3) + 1 ? "#F277C6" : "",
+              }}
             >
               <img src={Dish4} />
             </div>
@@ -1767,7 +1869,7 @@ export default function Module() {
           </div>
         </div>
 
-        {res.length !== 0 && (
+        {groupNumber.length === 2 && (
           <div className="assessment-group-btn module11-btn">
             <div
               className="assessment-next-btn module8-next-btn"
@@ -1791,103 +1893,6 @@ export default function Module() {
       </div>
     );
   } else if (cnt == 26) {
-    Content = (
-      <div className="module1-main">
-        <div className="module1-wrap">
-          <Progress number="04." percent={1} />
-          <div className="module1-content-wrap">
-            <div className="module1-logo">Module 11</div>
-            <div className="module1-body">
-              <div className="module1-title">Tom texts</div>
-              <div className="module1-content1">
-                Do you remember what they ordered?
-              </div>
-              <div className="module1-content2">
-                I am pretty sure [chosen guest 1] ordered the_ _ _ _ _ _ _and
-                [chosen guest 2] ordered the _ _ _ _ _ _ _.
-              </div>
-              <div className="module1-content2">
-                Oh no! if [gluten sick guest] ate the [guest]'s order, he/she is
-                in trouble.
-              </div>
-              <div className="module1-content2">I think I'm in trouble.</div>
-
-              <div className="module1-content2">Why?</div>
-              <div className="module1-content2">
-                Do you want to go on a date?
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="module1-categories"></div>
-        <div className="module1-dishes module1-dishes2">
-          <div>
-            <div
-              className="module1-dish module6-dish dish-container module11-food-wrap"
-              onClick={() => Choose(29)}
-              style={{ background: res[29] ? "#F277C6" : "" }}
-            >
-              <img src={Dish1} />
-            </div>
-            <div className="module11-food-item">Food 1</div>
-          </div>
-
-          <div>
-            <div
-              className="module1-dish module6-dish dish-container module11-food-wrap"
-              onClick={() => Choose(30)}
-              style={{ background: res[30] ? "#F277C6" : "" }}
-            >
-              <img src={Dish2} />
-            </div>
-            <div className="module11-food-item">Food 2</div>
-          </div>
-
-          <div>
-            <div
-              className="module1-dish module6-dish dish-container module11-food-wrap"
-              onClick={() => Choose(31)}
-              style={{ background: res[31] ? "#F277C6" : "" }}
-            >
-              <img src={Dish3} />
-            </div>
-            <div className="module11-food-item">Food 3</div>
-          </div>
-
-          <div>
-            <div
-              className="module1-dish module6-dish dish-container module11-food-wrap"
-              onClick={() => Choose(32)}
-              style={{ background: res[32] ? "#F277C6" : "" }}
-            >
-              <img src={Dish4} />
-            </div>
-            <div className="module11-food-item">Food 4</div>
-          </div>
-        </div>
-
-        {res.length !== 0 && (
-          <div className="assessment-group-btn module11-btn">
-            <div
-              className="assessment-next-btn module8-next-btn"
-              onClick={() => setCnt(cnt + 1)}
-            >
-              Next{" "}
-              <div
-                style={{
-                  paddingTop: "5px",
-                  display: "inline-block",
-                }}
-              >
-                <FaChevronRight color="white" size={16} />
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  } else if (cnt == 27) {
     Content = (
       <div className="module1-main">
         <div className="final-content">
